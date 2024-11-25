@@ -1,50 +1,89 @@
-# React + TypeScript + Vite
+# CodēCodes Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio repository! Here you can explore my projects and contributions in web development, mobile app development, AI tools, and more.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Overview](#overview)
+- [Technologies Used](#technologies-used)
+- [Projects](#projects)
+- [Setup Instructions](#setup-instructions)
+- [Contact](#contact)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This portfolio showcases my skills as a full-stack developer and highlights my expertise in:
+- Creating responsive web and mobile applications.
+- Developing AI-powered tools and interactive experiences.
+- Building immersive 3D applications and modern user interfaces.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technologies Used
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Front-End
+- React, TailwindCSS, TypeScript, Three.js
+- HTML5, CSS3, JavaScript
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Back-End
+- Node.js, Flask, MySQL, Firebase, REST APIs
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Mobile Development
+- Flutter, React Native
+
+### Design
+- Figma, Blender
+
+---
+
+## Projects
+
+### [Splinterhead Forge & Timber Website](#)
+- A custom woodworking and metalworking business website built with React and JavaScript.
+
+### [CodēCodes Portfolio](https://github.com/cod-e-codes/my-portfolio)
+- A responsive, React-based portfolio showcasing my projects and skills.
+
+### [Magi Ministries App](#)
+- A Flutter web app for managing church activities with localization, API integration, and MySQL.
+
+### [The Empathy Experience](#)
+- An immersive, multi-sensory web application using React-Three-Fiber to foster empathy and connection.
+
+---
+
+## Setup Instructions
+
+To run the portfolio locally:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/cod-e-codes/my-portfolio.git
+    cd my-portfolio
+    ```
+
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+4. Open your browser at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Contact
+
+If you’d like to connect or collaborate, feel free to reach out:
+- Email: cod.e.codes.dev@gmail.com
+- [GitHub](https://github.com/cod-e-codes)
+- [LinkedIn](https://linkedin.com/in/cod-e-codes)
+
+---
+
+&copy; {2024} CodēCodes. All rights reserved.
