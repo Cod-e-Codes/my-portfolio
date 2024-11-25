@@ -45,7 +45,7 @@ const projects: Projects = {
             title: 'CodēCodes Portfolio',
             description: 'A responsive portfolio showcasing my projects and skills.',
             status: 'Ongoing',
-            github: '#',
+            github: 'https://github.com/Cod-e-Codes/my-portfolio',
             demo: 'https://www.cod-e-codes.com',
             technologies: ['React', 'TailwindCSS', 'TypeScript'],
         },

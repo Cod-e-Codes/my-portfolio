@@ -14,7 +14,7 @@ const projects = [
         description: 'A responsive portfolio showcasing my projects and skills.',
         status: 'Ongoing',
         technologies: ['React', 'TailwindCSS', 'TypeScript'],
-        github: '#',
+        github: 'https://github.com/Cod-e-Codes/my-portfolio',
         demo: 'https://www.cod-e-codes.com',
     },
     {
