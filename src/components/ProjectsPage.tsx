@@ -395,6 +395,8 @@ const ProjectsPage: React.FC = () => {
                                     <div className="flex space-x-4">
                                         <a
                                             href={project.github}
+                                            target="_blank" // Opens link in a new tab
+                                            rel="noopener noreferrer" // Prevents security vulnerabilities
                                             onClick={(e) => project.github === '#' && handleHashLinkClick(e, 'GitHub')}
                                             className="text-blue-400 hover:underline"
                                         >
@@ -403,6 +405,8 @@ const ProjectsPage: React.FC = () => {
                                         {project.demo && (
                                             <a
                                                 href={project.demo}
+                                                target="_blank" // Opens link in a new tab
+                                                rel="noopener noreferrer" // Prevents security vulnerabilities
                                                 onClick={(e) => project.demo === '#' && handleHashLinkClick(e, 'Demo')}
                                                 className="text-blue-400 hover:underline"
                                             >
