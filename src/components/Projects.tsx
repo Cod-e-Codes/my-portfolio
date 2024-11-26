@@ -20,8 +20,8 @@ const projects = [
     {
         title: 'PartyDice',
         description: 'A neubrutalism-inspired party game with randomized dice rolls and unique outcomes.',
-        status: 'Completed',
-        github: '#',
+        status: 'Ongoing',
+        github: 'https://github.com/Cod-e-Codes/PartyDice',
         demo: '#',
         technologies: ['Flutter', 'Game Design', 'Animations'],
     },
