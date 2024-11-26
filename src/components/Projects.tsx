@@ -26,12 +26,12 @@ const projects = [
         technologies: ['Flutter', 'Game Design', 'Animations'],
     },
     {
-        title: 'Hugging Face Space for Flutter Code',
-        description: 'An AI tool that generates Flutter code for developers, hosted on Hugging Face.',
+        title: 'KitJinn',
+        description: 'A hands-free kitchen assistant app with voice commands, meal planning, pantry management, and Lottie animations.',
         status: 'Ongoing',
-        github: '#',
+        github: 'https://github.com/Cod-e-Codes/KitJinn',
         demo: '#',
-        technologies: ['Python', 'AI', 'Flutter'],
+        technologies: ['Flutter', 'Dart', 'Voice Recognition', 'Lottie Animations', 'Material 3'],
     },
 ];
 
