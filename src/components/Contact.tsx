@@ -91,14 +91,19 @@ const Contact: React.FC = () => {
                         required
                         className="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
-                    <textarea
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Message (Max 1000 characters)"
-                        required
-                        maxLength={1000} // Enforce the length in the input
-                        className="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    ></textarea>
+                    <div className="relative">
+                        <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="Message"
+                            required
+                            maxLength={1000}
+                            className="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        ></textarea>
+                        <div className="absolute bottom-2 right-4 text-gray-500 text-sm">
+                            {message.length} / 1000
+                        </div>
+                    </div>
                     <button
                         type="submit"
                         disabled={isSubmitting} // Disable the button while submitting
