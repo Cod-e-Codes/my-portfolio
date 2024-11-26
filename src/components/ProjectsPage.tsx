@@ -132,6 +132,14 @@ const projects: Projects = {
             demo: '#',
             technologies: ['Flutter', 'Dart', 'Animations', 'QR Code', 'Material 3'],
         },
+        {
+            title: 'KitJinn',
+            description: 'A hands-free kitchen assistant app with voice commands, meal planning, pantry management, and Lottie animations.',
+            status: 'Ongoing',
+            github: 'https://github.com/Cod-e-Codes/KitJinn', // Update with the actual GitHub link if available
+            demo: '#', // Replace with the demo link if available
+            technologies: ['Flutter', 'Dart', 'Voice Recognition', 'Lottie Animations', 'Material 3'],
+        },
     ],
     "Tools and AI": [
         {
