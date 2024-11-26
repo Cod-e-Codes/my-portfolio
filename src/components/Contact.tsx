@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
                             placeholder="Message"
                             required
                             maxLength={1000}
-                            className="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none min-h-[100px]"
                         ></textarea>
                         <div className="absolute bottom-2 right-4 text-gray-500 text-sm">
                             {message.length} / 1000
