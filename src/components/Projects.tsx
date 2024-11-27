@@ -5,8 +5,7 @@ const projects = [
         title: 'Magi Ministries App',
         description: 'A Flutter web app for managing church activities with localization, API integration, PHP, and MySQL.',
         status: 'Ongoing',
-        github: '#',
-        demo: '#',
+        github: 'https://github.com/Cod-e-Codes/magi',
         technologies: ['Flutter Web', 'Dart', 'Localization', 'PHP', 'MySQL'],
     },
     {
@@ -15,14 +14,12 @@ const projects = [
         status: 'Ongoing',
         technologies: ['React', 'TailwindCSS', 'TypeScript'],
         github: 'https://github.com/Cod-e-Codes/my-portfolio',
-        demo: 'https://www.cod-e-codes.com',
     },
     {
         title: 'PartyDice',
         description: 'A neubrutalism-inspired party game with randomized dice rolls and unique outcomes.',
         status: 'Ongoing',
         github: 'https://github.com/Cod-e-Codes/PartyDice',
-        demo: '#',
         technologies: ['Flutter', 'Game Design', 'Animations'],
     },
     {
@@ -30,7 +27,6 @@ const projects = [
         description: 'A hands-free kitchen assistant app with voice commands, meal planning, pantry management, and Lottie animations.',
         status: 'Ongoing',
         github: 'https://github.com/Cod-e-Codes/KitJinn',
-        demo: '#',
         technologies: ['Flutter', 'Dart', 'Voice Recognition', 'Lottie Animations', 'Material 3'],
     },
 ];
@@ -126,7 +122,7 @@ const Projects: React.FC = () => {
                                 >
                                     GitHub
                                 </a>
-                                {project.demo && (
+                                {/* {project.demo && (
                                     <a
                                         href={project.demo}
                                         target="_blank" // Opens in a new tab
@@ -136,7 +132,7 @@ const Projects: React.FC = () => {
                                     >
                                         View Demo
                                     </a>
-                                )}
+                                )} */}
                             </div>
                         </div>
                     ))}
