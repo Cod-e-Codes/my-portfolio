@@ -69,7 +69,6 @@ const projects: Projects = {
             description: 'A fun quiz game built with Flutter and a graffiti-style UI.',
             status: 'Ongoing',
             github: 'https://github.com/Cod-e-Codes/rap-lyrics-game',
-            demo: '#',
             technologies: ['Flutter', 'Dart', 'Animations'],
         },
         {
@@ -112,15 +111,14 @@ const projects: Projects = {
             title: 'Guitar Tabs Editor',
             description: 'An app for creating and sharing guitar tabs.',
             status: 'Completed',
-            github: '#',
+            github: 'https://github.com/Cod-e-Codes/guitar-tabs-editor',
             technologies: ['Flutter', 'Dart', 'Audio Features'],
         },
         {
             title: 'Interactive Business Card App',
             description: 'A dynamic business card app with flip card animations, QR code sharing, and modern UI design, built using Flutter.',
             status: 'Ongoing',
-            github: '#',
-            demo: '#',
+            github: 'https://github.com/Cod-e-Codes/business-card',
             technologies: ['Flutter', 'Dart', 'Animations', 'QR Code', 'Material 3'],
         },
         {
@@ -128,18 +126,7 @@ const projects: Projects = {
             description: 'A hands-free kitchen assistant app with voice commands, meal planning, pantry management, and Lottie animations.',
             status: 'Ongoing',
             github: 'https://github.com/Cod-e-Codes/KitJinn',
-            demo: '#',
             technologies: ['Flutter', 'Dart', 'Voice Recognition', 'Lottie Animations', 'Material 3'],
-        },
-    ],
-    "Tools and AI": [
-        {
-            title: 'Hugging Face Space for Flutter Code',
-            description: 'An AI tool that generates Flutter code for developers, hosted on Hugging Face.',
-            status: 'Ongoing',
-            github: '#',
-            demo: '#',
-            technologies: ['Python', 'AI', 'Flutter'],
         },
     ],
     "Games and Experiments": [
@@ -147,7 +134,7 @@ const projects: Projects = {
             title: 'Virtual Room Builder',
             description: 'A modular Python-based project for constructing and visualizing virtual rooms with customizable components like furniture and doors.',
             status: 'Completed',
-            github: '#',
+            github: 'https://github.com/Cod-e-Codes/virtual-room-builder',
             technologies: ['Python', 'Object-Oriented Design', 'Visualization'],
         },
         {
@@ -155,7 +142,6 @@ const projects: Projects = {
             description: 'A fun memory matching game with animated transitions.',
             status: 'Completed',
             github: 'https://github.com/Cod-e-Codes/memory-game',
-            demo: '#',
             technologies: ['Flutter', 'Dart', 'Animations'],
         },
         {
@@ -163,7 +149,6 @@ const projects: Projects = {
             description: 'A clone of the classic Pacman game built as a fun project.',
             status: 'Completed',
             github: 'https://github.com/Cod-e-Codes/pacman-clone',
-            demo: '#',
             technologies: ['Flutter', 'Game Design'],
         },
         {
@@ -171,7 +156,6 @@ const projects: Projects = {
             description: 'A recreation of the classic Tetris game with modern animations.',
             status: 'Completed',
             github: 'https://github.com/Cod-e-Codes/tetris',
-            demo: '#',
             technologies: ['Flutter', 'Game Design'],
         },
         {
@@ -179,7 +163,6 @@ const projects: Projects = {
             description: 'A digital version of the classic Minesweeper game with customizable difficulty.',
             status: 'Completed',
             github: 'https://github.com/Cod-e-Codes/minesweeper',
-            demo: '#',
             technologies: ['Flutter', 'Game Design'],
         },
         {
@@ -187,7 +170,6 @@ const projects: Projects = {
             description: 'A two-player Tic-Tac-Toe game with animations and AI.',
             status: 'Completed',
             github: 'https://github.com/Cod-e-Codes/tictactoe',
-            demo: '#',
             technologies: ['Flutter', 'Game Design', 'AI'],
         },
         {
@@ -195,7 +177,6 @@ const projects: Projects = {
             description: 'A neubrutalism-inspired party game with randomized dice rolls and unique outcomes.',
             status: 'Ongoing',
             github: 'https://github.com/Cod-e-Codes/PartyDice',
-            demo: '#',
             technologies: ['Flutter', 'Game Design', 'Animations'],
         },
     ],
@@ -206,6 +187,14 @@ const projects: Projects = {
             status: 'Completed',
             github: 'https://github.com/Cod-e-Codes/programmer-girlfriend',
             technologies: ['Bash', 'Shell Scripting', 'ASCII Art'],
+        },
+        {
+            title: 'Hugging Face Space for Flutter Code',
+            description: 'An AI tool that generates Flutter code for developers, hosted on Hugging Face.',
+            status: 'Ongoing',
+            github: '#',
+            demo: '#',
+            technologies: ['Python', 'AI', 'Flutter'],
         },
     ],
 };
