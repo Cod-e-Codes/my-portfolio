@@ -188,14 +188,6 @@ const projects: Projects = {
             github: 'https://github.com/Cod-e-Codes/programmer-girlfriend',
             technologies: ['Bash', 'Shell Scripting', 'ASCII Art'],
         },
-        {
-            title: 'Hugging Face Space for Flutter Code',
-            description: 'An AI tool that generates Flutter code for developers, hosted on Hugging Face.',
-            status: 'Ongoing',
-            github: 'https://github.com/Cod-e-Codes/flutter-code-generator',
-            demo: 'https://huggingface.co/spaces/Coyoteranger/flutter-code-generator',
-            technologies: ['Python', 'AI', 'Flutter'],
-        },
     ],
 };
 
