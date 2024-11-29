@@ -2,24 +2,24 @@ import React from 'react';
 
 const testimonials = [
     {
-        quote: "Cody transformed our vision into reality with the Splinterhead Forge & Timber website. His attention to detail and expertise ensured a stunning and functional design that exceeded our expectations!",
+        quote: "Cody did an amazing job on our Splinterhead Forge & Timber website. It looks professional, works perfectly, and really captures the spirit of our business. Our customers love it!",
         name: "Chris Crooks",
         position: "Owner, Splinterhead Forge & Timber",
     },
     {
-        quote: "The Magi Ministries App has been a game-changer for our organization. Cody's ability to integrate API functionalities and create an intuitive interface made it easy for our community to stay connected.",
+        quote: "The Magi Ministries App has been a huge help for our church. It’s easy to use and has made it so much simpler to organize events and communicate with our members. Cody really listened to what we needed.",
         name: "Bruce Smith",
         position: "Magi Ministries",
     },
     {
-        quote: "The Disc Golf Advisor app is a fantastic tool for players. Cody's understanding of both the sport and technology created a personalized and engaging experience that our users love.",
+        quote: "The Disc Golf Advisor has been a hit with our players. It’s straightforward to use and gives great advice. Cody’s work really made a difference for our community.",
         name: "Garett Kelly",
         position: "Founder, Disc Golf Community",
     },
     {
-        quote: "The Empathy Experience brought our vision of fostering connection to life in the most creative way. Cody’s 3D interactive designs and React expertise delivered a breathtaking application.",
+        quote: "KitJinn is incredible! Cody turned our idea for a hands-free kitchen assistant into a reality. It’s intuitive, helpful, and makes meal planning and organizing so much easier. We couldn’t be happier with how it turned out.",
         name: "Crystal Ryals",
-        position: "Creative Director, Empathy Lab",
+        position: "Creative Director, KitJinn Team",
     },
 ];
 
