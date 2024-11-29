@@ -335,9 +335,10 @@ const ProjectsPage: React.FC = () => {
                                             target="_blank" // Opens link in a new tab
                                             rel="noopener noreferrer" // Prevents security vulnerabilities
                                             onClick={(e) => project.github === '#' && handleHashLinkClick(e, 'GitHub')}
-                                            className="text-blue-400 hover:underline"
+                                            className="flex items-center space-x-2 text-blue-400 hover:underline"
                                         >
-                                            GitHub
+                                            <i className="fab fa-github"></i>
+                                            <span>GitHub</span>
                                         </a>
                                         {project.demo && (
                                             <a
@@ -345,9 +346,10 @@ const ProjectsPage: React.FC = () => {
                                                 target="_blank" // Opens link in a new tab
                                                 rel="noopener noreferrer" // Prevents security vulnerabilities
                                                 onClick={(e) => project.demo === '#' && handleHashLinkClick(e, 'Demo')}
-                                                className="text-blue-400 hover:underline"
+                                                className="flex items-center space-x-2 text-blue-400 hover:underline"
                                             >
-                                                View Demo
+                                                <i className="fas fa-external-link-alt"></i>
+                                                <span>View Demo</span>
                                             </a>
                                         )}
                                     </div>

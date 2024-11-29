@@ -9,11 +9,26 @@ const projects = [
         technologies: ['Flutter Web', 'Dart', 'Localization', 'PHP', 'MySQL'],
     },
     {
-        title: 'CodēCodes Portfolio',
-        description: 'A responsive portfolio showcasing my projects and skills.',
+        title: 'Rap Lyrics Game',
+        description: 'A fun quiz game built with Flutter and a graffiti-style UI.',
         status: 'Ongoing',
-        technologies: ['React', 'TailwindCSS', 'TypeScript'],
-        github: 'https://github.com/Cod-e-Codes/my-portfolio',
+        github: 'https://github.com/Cod-e-Codes/rap-lyrics-game',
+        technologies: ['Flutter', 'Dart', 'Animations'],
+    },
+    {
+        title: 'Harmony Hub',
+        description: 'A relationship-focused app designed to foster connection and communication between partners.',
+        status: 'Prototype',
+        github: 'https://github.com/Cod-e-Codes/harmony-hub',
+        demo: 'https://cod-e-codes.github.io/harmony-hub/',
+        technologies: ['React', 'Firebase', 'TailwindCSS', 'Vite'],
+    },
+    {
+        title: 'Disc Golf Advisor',
+        description: 'A Flask-based web application providing personalized disc golf advice.',
+        status: 'Completed',
+        github: 'https://github.com/Cod-e-Codes/python-disc-golf',
+        technologies: ['Flask', 'Python', 'TailwindCSS', 'JSON'],
     },
     {
         title: 'PartyDice',
@@ -31,7 +46,7 @@ const projects = [
     },
 ];
 
-const getStatusClass = (status: string | undefined) => {
+const getStatusClass = (status: string) => {
     switch (status) {
         case 'Active':
             return 'bg-green-500 text-white';
@@ -39,6 +54,8 @@ const getStatusClass = (status: string | undefined) => {
             return 'bg-yellow-500 text-white';
         case 'Completed':
             return 'bg-blue-500 text-white';
+        case 'Prototype':
+            return 'bg-purple-500 text-white';
         default:
             return 'bg-gray-500 text-white';
     }
@@ -72,7 +89,7 @@ const Projects: React.FC = () => {
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.slice(0, 4).map((project, index) => (
+                    {projects.map((project, index) => (
                         <div
                             key={index}
                             className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col justify-between"
@@ -118,21 +135,23 @@ const Projects: React.FC = () => {
                                     target="_blank" // Opens in a new tab
                                     rel="noopener noreferrer" // Security and performance
                                     onClick={(e) => project.github === '#' && handleHashLinkClick(e, 'GitHub')}
-                                    className="text-blue-400 hover:underline"
+                                    className="flex items-center space-x-2 text-blue-400 hover:underline"
                                 >
-                                    GitHub
+                                    <i className="fab fa-github"></i>
+                                    <span>GitHub</span>
                                 </a>
-                                {/* {project.demo && (
+                                {project.demo && (
                                     <a
                                         href={project.demo}
-                                        target="_blank" // Opens in a new tab
-                                        rel="noopener noreferrer" // Security and performance
+                                        target="_blank" // Opens link in a new tab
+                                        rel="noopener noreferrer" // Prevents security vulnerabilities
                                         onClick={(e) => project.demo === '#' && handleHashLinkClick(e, 'Demo')}
-                                        className="text-blue-400 hover:underline"
+                                        className="flex items-center space-x-2 text-blue-400 hover:underline"
                                     >
-                                        View Demo
+                                        <i className="fas fa-external-link-alt"></i>
+                                        <span>View Demo</span>
                                     </a>
-                                )} */}
+                                )}
                             </div>
                         </div>
                     ))}
