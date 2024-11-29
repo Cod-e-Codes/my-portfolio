@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop /> {/* Ensures scrolling to the top on route change */}
-      <div className="bg-gray-900 text-white">
+      <div className="bg-gray-900 text-white w-full min-h-screen">
         <Header />
         <Routes>
           <Route
