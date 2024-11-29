@@ -1,7 +1,7 @@
 import React from 'react';
 
 const stats = [
-    { label: 'Projects Completed', value: 18 },
+    { label: 'Projects Completed', value: 20 }, // Set the actual number here
     { label: 'Certifications Earned', value: 3 },
     { label: 'Years of Experience', value: 3 },
     { label: 'Technologies Mastered', value: 66 },
@@ -27,7 +27,9 @@ const Stats: React.FC = () => {
                             className="flex flex-col items-center text-center"
                         >
                             <span className="text-4xl font-bold text-blue-400">
-                                {stat.value}
+                                {stat.label === 'Projects Completed' && stat.value >= 20
+                                    ? '20+'
+                                    : stat.value}
                             </span>
                             <span className="text-gray-300 mt-2">{stat.label}</span>
                         </div>
