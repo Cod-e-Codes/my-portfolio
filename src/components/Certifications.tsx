@@ -3,6 +3,7 @@ import ibmMobileThumbnail from '../assets/ibm-ios-and-android-mobile-app-develop
 import metaThumbnail from '../assets/meta-react-native-thumbnail.jpeg';
 import pythonThumbnail from '../assets/python-for-everybody-thumbnail.jpeg';
 import ibmAIThumbnail from '../assets/ibm-ai-developer-thumbnail.jpeg';
+import googleUXThumbnail from '../assets/google-ux-design-thumbnail.jpeg';
 
 const certifications = [
     {
@@ -28,6 +29,12 @@ const certifications = [
         issuer: 'IBM',
         thumbnail: ibmAIThumbnail,
         fullImage: ibmAIThumbnail,
+    },
+    {
+        title: 'Google UX Design',
+        issuer: 'Google',
+        thumbnail: googleUXThumbnail,
+        fullImage: googleUXThumbnail,
     },
 ];
 
