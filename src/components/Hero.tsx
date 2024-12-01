@@ -50,13 +50,26 @@ const Hero: React.FC = () => {
                 </p>
             </div>
 
-            {/* Call-to-Action Button */}
-            <a
-                href="#projects"
-                className="inline-block px-8 py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-500 hover:text-white transition relative z-10 mt-6"
-            >
-                View Projects
-            </a>
+            {/* Call-to-Action Buttons */}
+            <div className="flex flex-col md:flex-row md:items-center mt-6 space-y-4 md:space-y-0 md:space-x-4">
+                {/* View Projects Button */}
+                <a
+                    href="#projects"
+                    className="inline-block px-8 py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-500 hover:text-white transition relative z-10"
+                >
+                    View Projects
+                </a>
+
+                {/* Newsletter Button */}
+                <a
+                    href="https://www.linkedin.com/newsletters/code-chronicles-7269023711842783232"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-3 bg-green-600 text-white text-lg rounded-lg hover:bg-green-500 hover:text-white transition relative z-10"
+                >
+                    Subscribe to Newsletter
+                </a>
+            </div>
         </section>
     );
 };
