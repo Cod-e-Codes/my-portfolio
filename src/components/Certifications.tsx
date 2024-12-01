@@ -4,6 +4,7 @@ import metaThumbnail from '../assets/meta-react-native-thumbnail.jpeg';
 import pythonThumbnail from '../assets/python-for-everybody-thumbnail.jpeg';
 import ibmAIThumbnail from '../assets/ibm-ai-developer-thumbnail.jpeg';
 import googleUXThumbnail from '../assets/google-ux-design-thumbnail.jpeg';
+import ibmFrontEndThumbnail from '../assets/ibm-front-end-developer-thumbnail.jpeg';
 
 const certifications = [
     {
@@ -36,6 +37,12 @@ const certifications = [
         thumbnail: googleUXThumbnail,
         fullImage: googleUXThumbnail,
     },
+    {
+        title: 'IBM Front-End Developer',
+        issuer: 'IBM',
+        thumbnail: ibmFrontEndThumbnail,
+        fullImage: ibmFrontEndThumbnail,
+    }
 ];
 
 const Certifications: React.FC = () => {
