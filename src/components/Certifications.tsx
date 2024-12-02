@@ -5,6 +5,7 @@ import pythonThumbnail from '../assets/python-for-everybody-thumbnail.jpeg';
 import ibmAIThumbnail from '../assets/ibm-ai-developer-thumbnail.jpeg';
 import googleUXThumbnail from '../assets/google-ux-design-thumbnail.jpeg';
 import ibmFrontEndThumbnail from '../assets/ibm-front-end-developer-thumbnail.jpeg';
+import javaProgrammingThumbnail from '../assets/java-programming-thumbnail.jpeg';
 
 const certifications = [
     {
@@ -42,6 +43,12 @@ const certifications = [
         issuer: 'IBM',
         thumbnail: ibmFrontEndThumbnail,
         fullImage: ibmFrontEndThumbnail,
+    },
+    {
+        title: 'Java Programming: Principles of Software Design',
+        issuer: 'Duke University',
+        thumbnail: javaProgrammingThumbnail,
+        fullImage: javaProgrammingThumbnail,
     }
 ];
 
