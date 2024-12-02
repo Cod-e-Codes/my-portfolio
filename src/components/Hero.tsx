@@ -55,20 +55,18 @@ const Hero: React.FC = () => {
                 {/* View Projects Button */}
                 <a
                     href="#projects"
-                    className="inline-block px-8 py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-500 hover:text-white transition relative z-10"
+                    className="inline-block px-8 py-3 bg-green-600 text-white text-lg rounded-lg hover:bg-green-500 hover:text-white transition relative z-10"
                 >
                     View Projects
                 </a>
 
                 {/* Newsletter Button */}
-                <a
-                    href="https://www.linkedin.com/newsletters/code-chronicles-7269023711842783232"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-8 py-3 bg-green-600 text-white text-lg rounded-lg hover:bg-green-500 hover:text-white transition relative z-10"
+                <button
+                    className="inline-block px-8 py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-500 hover:text-white transition relative z-10"
+                    onClick={() => window.open('https://www.linkedin.com/newsletters/code-chronicles-7269023711842783232', '_blank')}
                 >
-                    Subscribe to Newsletter
-                </a>
+                    Subscribe on LinkedIn
+                </button>
             </div>
         </section>
     );
