@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ibmMobileThumbnail from '../assets/ibm-ios-and-android-mobile-app-developer-thumbnail.jpeg';
-import metaThumbnail from '../assets/meta-react-native-thumbnail.jpeg';
-import pythonThumbnail from '../assets/python-for-everybody-thumbnail.jpeg';
+import metaReactNativeThumbnail from '../assets/meta-react-native-thumbnail.jpeg';
+import pythonForEverybodyThumbnail from '../assets/python-for-everybody-thumbnail.jpeg';
 import ibmAIThumbnail from '../assets/ibm-ai-developer-thumbnail.jpeg';
 import googleUXThumbnail from '../assets/google-ux-design-thumbnail.jpeg';
 import ibmFrontEndThumbnail from '../assets/ibm-front-end-developer-thumbnail.jpeg';
@@ -17,14 +17,14 @@ const certifications = [
     {
         title: 'Meta React Native Certification',
         issuer: 'Meta',
-        thumbnail: metaThumbnail,
-        fullImage: metaThumbnail,
+        thumbnail: metaReactNativeThumbnail,
+        fullImage: metaReactNativeThumbnail,
     },
     {
         title: 'Python for Everybody',
         issuer: 'University of Michigan',
-        thumbnail: pythonThumbnail,
-        fullImage: pythonThumbnail,
+        thumbnail: pythonForEverybodyThumbnail,
+        fullImage: pythonForEverybodyThumbnail,
     },
     {
         title: 'IBM AI Developer',
