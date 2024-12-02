@@ -2,7 +2,7 @@ import React from 'react';
 
 const stats = [
     { label: 'Projects Completed', value: 20 }, // Set the actual number here
-    { label: 'Certifications Earned', value: 7 },
+    { label: 'Certifications Earned', value: 6 },
     { label: 'Years of Experience', value: 3 },
     { label: 'Technologies Mastered', value: 66 },
 ];
