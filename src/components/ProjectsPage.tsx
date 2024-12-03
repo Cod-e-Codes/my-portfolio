@@ -62,6 +62,14 @@ const projects: Projects = {
             github: 'https://github.com/Cod-e-Codes/python-disc-golf',
             technologies: ['Flask', 'Python', 'TailwindCSS', 'JSON'],
         },
+        {
+            title: 'PartyDice (React)',
+            description: 'A neubrutalism-inspired party game with randomized dice rolls and unique outcomes.',
+            status: 'Ongoing',
+            github: 'https://github.com/Cod-e-Codes/partydice-react',
+            technologies: ['React', 'TypeScript', 'TailwindCSS'],
+            demo: 'https://cod-e-codes.github.io/partydice-react/',
+        },
     ],
     "Mobile Development": [
         {
