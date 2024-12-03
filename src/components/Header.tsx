@@ -10,7 +10,7 @@ const Header: React.FC = () => {
 
     return (
         <header className="flex justify-between items-center p-4 bg-gray-950 shadow-md sticky top-0 z-50 border-b-4 border-gray-800">
-            <h1 className="text-2xl font-bold">CodēCodes</h1>
+            <Link to="/"><h1 className="text-2xl font-bold">CodēCodes</h1></Link>
 
             {/* Hamburger Icon */}
             <button
