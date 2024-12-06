@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Certifications from './components/Certifications';
 import Projects from './components/Projects';
 import ProjectsPage from './components/ProjectsPage';
+import AccomplishmentsPage from './components/AccomplishmentsPage';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -37,6 +38,7 @@ function App() {
             }
           />
           <Route path="/all-projects" element={<ProjectsPage />} />
+          <Route path="/all-accomplishments" element={<AccomplishmentsPage />} />
         </Routes>
         <Footer />
       </div>
