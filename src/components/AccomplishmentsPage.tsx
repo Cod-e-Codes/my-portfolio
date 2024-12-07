@@ -845,41 +845,46 @@ const AccomplishmentsPage: React.FC = () => {
 
                 {/* Accomplishments Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredAccomplishments.map((accomplishment, index) => (
-                        <div
-                            key={index}
-                            className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col"
-                        >
-                            {/* Placeholder container */}
-                            <div className="relative w-full h-40 bg-gray-700 rounded flex items-center justify-center overflow-hidden">
-                                <img
-                                    src={accomplishment.image}
-                                    alt={accomplishment.title}
-                                    loading="lazy"
-                                    className="w-full h-full object-cover transition-opacity duration-500 opacity-0"
-                                    onLoad={(e) =>
-                                        (e.currentTarget.style.opacity = '1')
-                                    }
-                                />
-                                {/* Placeholder Blur */}
-                                <div className="absolute inset-0 bg-gray-800 blur-sm animate-pulse"></div>
+                    {filteredAccomplishments.map((accomplishment, index) => {
+                        const [isLoaded, setIsLoaded] = useState(false); // Track loading state for each image
+
+                        return (
+                            <div
+                                key={index}
+                                className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col"
+                            >
+                                {/* Placeholder container */}
+                                <div className="relative w-full h-40 bg-gray-700 rounded flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src={accomplishment.image}
+                                        alt={accomplishment.title}
+                                        loading="lazy"
+                                        className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'
+                                            }`}
+                                        onLoad={() => setIsLoaded(true)} // Set loaded state to true once image loads
+                                    />
+                                    {/* Placeholder Blur */}
+                                    {!isLoaded && (
+                                        <div className="absolute inset-0 bg-gray-800 blur-sm animate-pulse"></div>
+                                    )}
+                                </div>
+                                <h3 className="text-xl font-semibold text-white mt-4">
+                                    {accomplishment.title}
+                                </h3>
+                                <p className="text-gray-400 text-sm mb-2">{accomplishment.issuedBy}</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {accomplishment.skills.map((skill, i) => (
+                                        <span
+                                            key={i}
+                                            className="bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
-                            <h3 className="text-xl font-semibold text-white mt-4">
-                                {accomplishment.title}
-                            </h3>
-                            <p className="text-gray-400 text-sm mb-2">{accomplishment.issuedBy}</p>
-                            <div className="flex flex-wrap gap-2">
-                                {accomplishment.skills.map((skill, i) => (
-                                    <span
-                                        key={i}
-                                        className="bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 {/* Infinite Scroll Trigger */}
