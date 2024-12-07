@@ -762,14 +762,12 @@ const AccomplishmentsPage: React.FC = () => {
     const [visibleAccomplishments, setVisibleAccomplishments] = useState<Accomplishment[]>([]);
     const [page, setPage] = useState(1);
 
-    const itemsPerPage = 9; // Number of items to display per page
+    const itemsPerPage = 9;
 
     const { ref, inView } = useInView({
         threshold: 0.5,
-        triggerOnce: false,
     });
 
-    // Filter accomplishments based on search, category, and skill
     const filteredAccomplishments = accomplishments.filter((accomplishment) => {
         const matchesCategory =
             !selectedCategory || accomplishment.category === selectedCategory;
@@ -782,14 +780,12 @@ const AccomplishmentsPage: React.FC = () => {
         return matchesCategory && matchesSkill && matchesSearch;
     });
 
-    // Paginate accomplishments
     useEffect(() => {
         const startIndex = (page - 1) * itemsPerPage;
         const newItems = filteredAccomplishments.slice(0, startIndex + itemsPerPage);
         setVisibleAccomplishments(newItems);
     }, [page, filteredAccomplishments]);
 
-    // Load more items when `inView` is true
     useEffect(() => {
         if (inView && visibleAccomplishments.length < filteredAccomplishments.length) {
             setPage((prev) => prev + 1);
@@ -849,18 +845,26 @@ const AccomplishmentsPage: React.FC = () => {
 
                 {/* Accomplishments Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {visibleAccomplishments.map((accomplishment, index) => (
+                    {filteredAccomplishments.map((accomplishment, index) => (
                         <div
                             key={index}
                             className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col"
                         >
-                            <img
-                                src={accomplishment.image}
-                                alt={accomplishment.title}
-                                loading="lazy"
-                                className="w-full h-40 object-cover mb-4 rounded"
-                            />
-                            <h3 className="text-xl font-semibold text-white mb-2">
+                            {/* Placeholder container */}
+                            <div className="relative w-full h-40 bg-gray-700 rounded flex items-center justify-center overflow-hidden">
+                                <img
+                                    src={accomplishment.image}
+                                    alt={accomplishment.title}
+                                    loading="lazy"
+                                    className="w-full h-full object-cover transition-opacity duration-500 opacity-0"
+                                    onLoad={(e) =>
+                                        (e.currentTarget.style.opacity = '1')
+                                    }
+                                />
+                                {/* Placeholder Blur */}
+                                <div className="absolute inset-0 bg-gray-800 blur-sm animate-pulse"></div>
+                            </div>
+                            <h3 className="text-xl font-semibold text-white mt-4">
                                 {accomplishment.title}
                             </h3>
                             <p className="text-gray-400 text-sm mb-2">{accomplishment.issuedBy}</p>
