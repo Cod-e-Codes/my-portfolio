@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 // Import Images for Accomplishments
 import badge1 from '../assets/accomplishments/badges/application-development-using-microservices-and-ser.png';
@@ -758,7 +759,17 @@ const AccomplishmentsPage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+    const [visibleAccomplishments, setVisibleAccomplishments] = useState<Accomplishment[]>([]);
+    const [page, setPage] = useState(1);
 
+    const itemsPerPage = 9; // Number of items to display per page
+
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+        triggerOnce: false,
+    });
+
+    // Filter accomplishments based on search, category, and skill
     const filteredAccomplishments = accomplishments.filter((accomplishment) => {
         const matchesCategory =
             !selectedCategory || accomplishment.category === selectedCategory;
@@ -771,6 +782,20 @@ const AccomplishmentsPage: React.FC = () => {
         return matchesCategory && matchesSkill && matchesSearch;
     });
 
+    // Paginate accomplishments
+    useEffect(() => {
+        const startIndex = (page - 1) * itemsPerPage;
+        const newItems = filteredAccomplishments.slice(0, startIndex + itemsPerPage);
+        setVisibleAccomplishments(newItems);
+    }, [page, filteredAccomplishments]);
+
+    // Load more items when `inView` is true
+    useEffect(() => {
+        if (inView && visibleAccomplishments.length < filteredAccomplishments.length) {
+            setPage((prev) => prev + 1);
+        }
+    }, [inView, visibleAccomplishments, filteredAccomplishments]);
+
     return (
         <section id="all-accomplishments" className="py-16 px-4 bg-gray-800 text-gray-300">
             <div className="max-w-6xl mx-auto">
@@ -781,7 +806,6 @@ const AccomplishmentsPage: React.FC = () => {
 
                 {/* Filters */}
                 <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-                    {/* Search Input */}
                     <div className="flex-1 min-w-[200px]">
                         <input
                             type="text"
@@ -792,7 +816,6 @@ const AccomplishmentsPage: React.FC = () => {
                         />
                     </div>
 
-                    {/* Category Filter */}
                     <div className="flex-1 min-w-[200px]">
                         <select
                             value={selectedCategory || ''}
@@ -808,7 +831,6 @@ const AccomplishmentsPage: React.FC = () => {
                         </select>
                     </div>
 
-                    {/* Skills Filter */}
                     <div className="flex-1 min-w-[200px]">
                         <select
                             value={selectedSkill || ''}
@@ -827,26 +849,21 @@ const AccomplishmentsPage: React.FC = () => {
 
                 {/* Accomplishments Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredAccomplishments.map((accomplishment, index) => (
+                    {visibleAccomplishments.map((accomplishment, index) => (
                         <div
                             key={index}
                             className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col"
                         >
-                            {/* Image */}
                             <img
                                 src={accomplishment.image}
                                 alt={accomplishment.title}
-                                className="max-w-xs w-full h-auto mx-auto mb-4 rounded"
+                                loading="lazy"
+                                className="w-full h-40 object-cover mb-4 rounded"
                             />
-                            {/* Title */}
                             <h3 className="text-xl font-semibold text-white mb-2">
                                 {accomplishment.title}
                             </h3>
-                            {/* Issued By */}
-                            <p className="text-gray-400 text-sm mb-2">
-                                {accomplishment.issuedBy}
-                            </p>
-                            {/* Skills */}
+                            <p className="text-gray-400 text-sm mb-2">{accomplishment.issuedBy}</p>
                             <div className="flex flex-wrap gap-2">
                                 {accomplishment.skills.map((skill, i) => (
                                     <span
@@ -860,6 +877,11 @@ const AccomplishmentsPage: React.FC = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* Infinite Scroll Trigger */}
+                {visibleAccomplishments.length < filteredAccomplishments.length && (
+                    <div ref={ref} className="h-10"></div>
+                )}
             </div>
         </section>
     );
