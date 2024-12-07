@@ -21,6 +21,8 @@ import badge17 from '../assets/accomplishments/badges/node-and-express-essential
 import badge18 from '../assets/accomplishments/badges/python-for-data-science-and-ai.png';
 import badge19 from '../assets/accomplishments/badges/python-project-for-ai-and-application-development.png';
 import badge20 from '../assets/accomplishments/badges/software-engineering-essentials.png';
+import badge21 from '../assets/accomplishments/badges/ibm-full-stack-application-development-capstone-project.png';
+import badge22 from '../assets/accomplishments/badges/ibm-full-stack-software-developer-professional-cert.1.png';
 
 import certification1 from '../assets/accomplishments/certifications/duke-university-java-programming-arrays-lists-and-structured-data.jpeg';
 import certification2 from '../assets/accomplishments/certifications/duke-university-java-programming-principles-of-software-design.jpeg';
@@ -82,6 +84,7 @@ import certification57 from '../assets/accomplishments/certifications/university
 import certification58 from '../assets/accomplishments/certifications/university-of-michigan-python-data-structures.jpeg';
 import certification59 from '../assets/accomplishments/certifications/university-of-michigan-using-databases-with-python.jpeg';
 import certification60 from '../assets/accomplishments/certifications/university-of-michigan-using-python-to-access-web-data.jpeg';
+import certification61 from '../assets/accomplishments/certifications/ibm-full-stack-application-development-capstone-project.jpeg';
 
 import specialization1 from '../assets/accomplishments/specializations/google-ux-design.jpeg';
 import specialization2 from '../assets/accomplishments/specializations/ibm-ai-developer.jpeg';
@@ -90,6 +93,7 @@ import specialization4 from '../assets/accomplishments/specializations/ibm-ios-a
 import specialization5 from '../assets/accomplishments/specializations/meta-front-end-developer.jpeg';
 import specialization6 from '../assets/accomplishments/specializations/meta-react-native.jpeg';
 import specialization7 from '../assets/accomplishments/specializations/python-for-everybody.jpeg';
+import specialization8 from '../assets/accomplishments/specializations/ibm-full-stack-software-developer.jpeg';
 
 // Define the accomplishment type
 type Accomplishment = {
@@ -242,6 +246,20 @@ const accomplishments: Accomplishment[] = [
         image: badge20,
         issuedBy: 'Issued by: IBM',
         skills: ['Basic Programming Concepts', 'PWID-B0406200', 'SDLC', 'Software Architecture', 'Software Building Process', 'Software Development Lifecycle', 'Software Development Tools', 'Software Engineer', 'Software Engineering']
+    },
+    {
+        title: 'IBM Full-Stack Application Development Capstone Project',
+        category: 'Badges',
+        image: badge21,
+        issuedBy: 'Issued by: IBM',
+        skills: ['Artificial Intelligence', 'Data Science', 'Machine Learning', 'Natural Language Processing', 'Python', 'TensorFlow', 'Web Development']
+    },
+    {
+        title: 'IBM Full Stack Software Developer Professional Certificate (V5)',
+        category: 'Badges',
+        image: badge22,
+        issuedBy: 'Issued by: IBM',
+        skills: ['Artificial Intelligence', 'Data Science', 'Machine Learning', 'Natural Language Processing', 'Python', 'TensorFlow', 'Web Development']
     },
     // Certifications
     {
@@ -664,6 +682,13 @@ const accomplishments: Accomplishment[] = [
         issuedBy: 'Issued by: Google',
         skills: ['JSON', 'Xml', 'Python Programming', 'Web Scraping']
     },
+    {
+        title: 'IBM Full Stack Application Development Capstone Project',
+        category: 'Certifications',
+        image: certification61,
+        issuedBy: 'Issued by: IBM',
+        skills: ['Full-Stack Development', 'Web Development', 'HTML', 'CSS', 'JavaScript', 'Node.js', 'React.js', 'React Native', 'Python', 'Databases', 'MySQL', 'MongoDB', 'IBM Cloud']
+    },
     // Specializations
     {
         title: 'Google UX Design',
@@ -713,6 +738,13 @@ const accomplishments: Accomplishment[] = [
         image: specialization7,
         issuedBy: 'Issued by: University of Michigan',
         skills: ['JSON', 'Xml', 'Python Programming', 'Database (DBMS)']
+    },
+    {
+        title: 'IBM Full-Stack Software Developer',
+        category: 'Specializations',
+        image: specialization8,
+        issuedBy: 'Issued by: IBM',
+        skills: ['Web Development', 'Front-End Development', 'HTML5', 'CSS3', 'JavaScript', 'React', 'Next.js', 'TailwindCSS', 'SCSS/SASS', 'LESS', 'jQuery', 'Bootstrap', 'Material-UI']
     }
 ];
 

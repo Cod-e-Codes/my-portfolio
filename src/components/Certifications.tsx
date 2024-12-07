@@ -6,6 +6,7 @@ import ibmAIThumbnail from '../assets/ibm-ai-developer-thumbnail.jpeg';
 import googleUXThumbnail from '../assets/google-ux-design-thumbnail.jpeg';
 import ibmFrontEndThumbnail from '../assets/ibm-front-end-developer-thumbnail.jpeg';
 import metaFrontEndThumbnail from '../assets/meta-front-end-developer-thumbnail.jpeg';
+import ibmFullStackThumbnail from '../assets/ibm-full-stack-software-developer-thumbnail.jpeg';
 
 const certifications = [
     {
@@ -49,6 +50,12 @@ const certifications = [
         issuer: 'Meta',
         thumbnail: metaFrontEndThumbnail,
         fullImage: metaFrontEndThumbnail,
+    },
+    {
+        title: 'IBM Full-Stack Software Developer',
+        issuer: 'IBM',
+        thumbnail: ibmFullStackThumbnail,
+        fullImage: ibmFullStackThumbnail,
     },
 ];
 
