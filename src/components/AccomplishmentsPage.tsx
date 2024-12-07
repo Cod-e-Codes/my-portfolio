@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { useState } from 'react';
 
 // Import Images for Accomplishments
 import badge1 from '../assets/accomplishments/badges/application-development-using-microservices-and-ser.png';
@@ -759,14 +758,6 @@ const AccomplishmentsPage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
-    const [visibleAccomplishments, setVisibleAccomplishments] = useState<Accomplishment[]>([]);
-    const [page, setPage] = useState(1);
-
-    const itemsPerPage = 9;
-
-    const { ref, inView } = useInView({
-        threshold: 0.5,
-    });
 
     const filteredAccomplishments = accomplishments.filter((accomplishment) => {
         const matchesCategory =
@@ -779,18 +770,6 @@ const AccomplishmentsPage: React.FC = () => {
 
         return matchesCategory && matchesSkill && matchesSearch;
     });
-
-    useEffect(() => {
-        const startIndex = (page - 1) * itemsPerPage;
-        const newItems = filteredAccomplishments.slice(0, startIndex + itemsPerPage);
-        setVisibleAccomplishments(newItems);
-    }, [page, filteredAccomplishments]);
-
-    useEffect(() => {
-        if (inView && visibleAccomplishments.length < filteredAccomplishments.length) {
-            setPage((prev) => prev + 1);
-        }
-    }, [inView, visibleAccomplishments, filteredAccomplishments]);
 
     return (
         <section id="all-accomplishments" className="py-16 px-4 bg-gray-800 text-gray-300">
@@ -845,52 +824,36 @@ const AccomplishmentsPage: React.FC = () => {
 
                 {/* Accomplishments Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredAccomplishments.map((accomplishment, index) => {
-                        const [isLoaded, setIsLoaded] = useState(false); // Track loading state for each image
-
-                        return (
-                            <div
-                                key={index}
-                                className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col"
-                            >
-                                {/* Placeholder container */}
-                                <div className="relative w-full h-40 bg-gray-700 rounded flex items-center justify-center overflow-hidden">
-                                    <img
-                                        src={accomplishment.image}
-                                        alt={accomplishment.title}
-                                        loading="lazy"
-                                        className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'
-                                            }`}
-                                        onLoad={() => setIsLoaded(true)} // Set loaded state to true once image loads
-                                    />
-                                    {/* Placeholder Blur */}
-                                    {!isLoaded && (
-                                        <div className="absolute inset-0 bg-gray-800 blur-sm animate-pulse"></div>
-                                    )}
-                                </div>
-                                <h3 className="text-xl font-semibold text-white mt-4">
-                                    {accomplishment.title}
-                                </h3>
-                                <p className="text-gray-400 text-sm mb-2">{accomplishment.issuedBy}</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {accomplishment.skills.map((skill, i) => (
-                                        <span
-                                            key={i}
-                                            className="bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
+                    {filteredAccomplishments.map((accomplishment, index) => (
+                        <div
+                            key={index}
+                            className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col"
+                        >
+                            <div className="relative w-full h-40 bg-gray-700 rounded flex items-center justify-center overflow-hidden">
+                                <img
+                                    src={accomplishment.image}
+                                    alt={accomplishment.title}
+                                    loading="lazy"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
-                        );
-                    })}
+                            <h3 className="text-xl font-semibold text-white mt-4">
+                                {accomplishment.title}
+                            </h3>
+                            <p className="text-gray-400 text-sm mb-2">{accomplishment.issuedBy}</p>
+                            <div className="flex flex-wrap gap-2">
+                                {accomplishment.skills.map((skill, i) => (
+                                    <span
+                                        key={i}
+                                        className="bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-
-                {/* Infinite Scroll Trigger */}
-                {visibleAccomplishments.length < filteredAccomplishments.length && (
-                    <div ref={ref} className="h-10"></div>
-                )}
             </div>
         </section>
     );
