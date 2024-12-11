@@ -115,14 +115,14 @@ const Certifications: React.FC = () => {
                 </div>
 
                 {/* View All Accomplishments Button */}
-                <div className="text-center mt-10">
+                {/* <div className="text-center mt-10">
                     <a
                         href="/all-accomplishments"
                         className="inline-block px-6 py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-500 transition"
                     >
                         View All Accomplishments
                     </a>
-                </div>
+                </div> */}
             </div>
 
             {/* Modal for Full-Sized Image */}
