@@ -82,10 +82,25 @@ const Stats: React.FC = () => {
                 </div>
 
                 {/* Divider Between Sections */}
-                <div className="w-full h-1 bg-gray-700 mb-8"></div>
+                <div className="relative flex items-center justify-center my-12">
+                    <div className="absolute inset-0 flex items-center">
+                        <div className="w-full h-1 bg-gray-700"></div>
+                    </div>
+                    <div className="relative bg-gray-800 px-4">
+                        <a
+                            href="https://github.com/Cod-e-Codes"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all duration-300"
+                        >
+                            <i className="fab fa-github text-2xl mr-3"></i>
+                            Follow me on GitHub
+                        </a>
+                    </div>
+                </div>
 
                 {/* GitHub Stats Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     {githubStats.map((stat, index) => (
                         <div
                             key={index}
@@ -98,6 +113,7 @@ const Stats: React.FC = () => {
                         </div>
                     ))}
                 </div>
+
             </div>
         </section>
     );
