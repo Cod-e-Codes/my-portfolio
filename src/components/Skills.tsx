@@ -115,27 +115,27 @@ const Skills: React.FC = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
                                 duration: 0.5,
-                                delay: index * 0.1
+                                delay: index * 0.1,
                             }}
                             className="relative"
                         >
+                            {/* Make the entire card clickable */}
                             <div
-                                className={`
-                                    p-6 rounded-xl border-2 
-                                    transition-all duration-300 
-                                    ${selectedCategory === category
+                                className={`cursor-pointer p-6 rounded-xl border-2 
+                            transition-all duration-300 
+                            ${selectedCategory === category
                                         ? 'bg-blue-900/50 border-blue-500 scale-105'
                                         : 'bg-white/10 border-white/20 hover:bg-white/20'}
-                                `}
+                        `}
+                                onClick={() => setSelectedCategory(category)} // Handle click here
                             >
                                 <div className="flex items-center mb-4">
                                     <category.icon
-                                        className={`
-                                            w-12 h-12 mr-4
-                                            ${selectedCategory === category
+                                        className={`w-12 h-12 mr-4 
+                                    ${selectedCategory === category
                                                 ? 'text-blue-400'
                                                 : 'text-gray-400'}
-                                        `}
+                                    `}
                                     />
                                     <h3 className="text-2xl font-bold text-white">
                                         {category.category}
@@ -143,12 +143,9 @@ const Skills: React.FC = () => {
                                 </div>
 
                                 <div className="flex justify-between items-center mt-4">
-                                    <button
-                                        onClick={() => setSelectedCategory(category)}
-                                        className="text-blue-400 hover:text-blue-300"
-                                    >
+                                    <span className="text-blue-400 hover:text-blue-300">
                                         {category.skills.length} Skills
-                                    </button>
+                                    </span>
                                 </div>
                             </div>
                         </motion.div>

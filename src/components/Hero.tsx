@@ -75,16 +75,16 @@ const Hero: React.FC = () => {
                 </h1>
 
                 {/* Animated Typewriter */}
-                <div
-                    className="mb-8 px-4 py-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20"
-                    style={{ width: '330px' }} // Adjust based on the longest text
-                >
-                    <p
-                        className="text-xl md:text-2xl text-gray-200 font-medium flex items-center justify-center"
-                    >
+                <div className="mb-8 px-4 py-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 relative inline-block">
+                    <span className="opacity-0 text-base md:text-lg">
+                        Where Code Meets Creativity
+                    </span>
+
+                    {/* Positioning the typewriter absolutely over the invisible text */}
+                    <p className="text-base md:text-lg text-gray-200 font-medium flex items-center justify-center absolute inset-0">
                         <Typewriter
                             words={['Where Code Meets Creativity']}
-                            loop={false} // Since there's only one phrase, no need to loop
+                            loop={false}
                             cursor
                             cursorStyle="_"
                             typeSpeed={50}

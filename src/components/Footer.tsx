@@ -92,16 +92,6 @@ const Footer: React.FC = () => {
                     All Rights Reserved
                     <Heart className="ml-2 text-red-500 animate-pulse" size={16} />
                 </motion.p>
-
-                {/* Additional Subtle Text */}
-                <motion.p
-                    className="text-xs text-gray-600 mt-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                >
-                    Crafted with passion | Powered by Innovation
-                </motion.p>
             </div>
         </footer>
     );

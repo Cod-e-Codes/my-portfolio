@@ -119,9 +119,7 @@ const Certifications: React.FC = () => {
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-5xl font-extrabold text-center mb-12 
-                               bg-clip-text text-transparent 
-                               bg-gradient-to-r from-blue-400 to-purple-600"
+                    className="text-5xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
                 >
                     <Award className="inline-block mr-4 text-blue-400" size={48} />
                     Certifications
