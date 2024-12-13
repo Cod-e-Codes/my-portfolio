@@ -1,183 +1,132 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { Home, User, Briefcase, Send, Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
 
-    // Helper function to determine if the current route is the main page
-    const isMainPage = location.pathname === '/';
+    // Navigation Items with Icons
+    const navItems = [
+        { name: 'Home', href: '#hero', icon: Home },
+        { name: 'About', href: '#about', icon: User },
+        { name: 'Projects', href: '#projects', icon: Briefcase },
+        { name: 'Contact', href: '#contact', icon: Send },
+    ];
+
+    // Scroll effect
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Mobile menu variants
+    const menuVariants = {
+        hidden: {
+            opacity: 0,
+            height: 0,
+            transition: { duration: 0.3, ease: 'easeInOut' },
+        },
+        visible: {
+            opacity: 1,
+            height: 'auto',
+            transition: { duration: 0.3, ease: 'easeInOut' },
+        },
+    };
+
+    // Render navigation links
+    const renderNavLinks = (isMobile = false) =>
+        navItems.map((item) => {
+            const isMainPage = location.pathname === '/';
+
+            return (
+                <li key={item.name} className={isMobile ? 'w-full' : ''}>
+                    {isMainPage ? (
+                        <a
+                            href={item.href}
+                            className={`
+                                flex items-center gap-2 
+                                text-blue-400 hover:text-white 
+                                transition-all duration-300 
+                                ${isMobile ? 'py-2 px-4 w-full' : ''}
+                            `}
+                            {...(isMobile ? { onClick: () => setIsMenuOpen(false) } : {})}
+                        >
+                            <item.icon size={20} />
+                            {item.name}
+                        </a>
+                    ) : (
+                        <Link
+                            to={`/#${item.href.slice(1)}`}
+                            className={`
+                                flex items-center gap-2 
+                                text-blue-400 hover:text-white 
+                                transition-all duration-300 
+                                ${isMobile ? 'py-2 px-4 w-full' : ''}
+                            `}
+                            {...(isMobile ? { onClick: () => setIsMenuOpen(false) } : {})}
+                        >
+                            <item.icon size={20} />
+                            {item.name}
+                        </Link>
+                    )}
+                </li>
+            );
+        });
 
     return (
-        <header className="flex justify-between items-center p-4 bg-gray-950 shadow-md sticky top-0 z-50 border-b-4 border-gray-800">
-            <Link to="/"><h1 className="text-2xl font-bold">CodēCodes</h1></Link>
-
-            {/* Hamburger Icon */}
-            <button
-                className="md:hidden text-white focus:outline-none"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Toggle menu"
-            >
-                <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+        <motion.header
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-950/80 backdrop-blur-md shadow-lg' : 'bg-gray-950'
+                } border-b border-gray-800`}
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        >
+            <div className="container mx-auto flex justify-between items-center p-4">
+                {/* Logo */}
+                <Link
+                    to="/"
+                    className="text-2xl font-bold text-white flex items-center gap-2"
                 >
-                    {isMenuOpen ? (
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    ) : (
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16m-7 6h7"
-                        />
+                    CodēCodes
+                </Link>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                    className="md:hidden text-white focus:outline-none"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                {/* Desktop Navigation */}
+                <nav className="hidden md:block">
+                    <ul className="flex space-x-4">{renderNavLinks()}</ul>
+                </nav>
+
+                {/* Mobile Navigation */}
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <motion.div
+                            className="absolute top-full left-0 w-full bg-gray-950 md:hidden"
+                            variants={menuVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                        >
+                            <ul className="flex flex-col items-center space-y-4 py-4">
+                                {renderNavLinks(true)}
+                            </ul>
+                        </motion.div>
                     )}
-                </svg>
-            </button>
-
-            {/* Desktop Menu */}
-            <nav className="hidden md:block">
-                <ul className="flex space-x-4">
-                    <li>
-                        {isMainPage ? (
-                            <a href="#hero" className="text-blue-400 hover:text-white">
-                                Home
-                            </a>
-                        ) : (
-                            <Link to="/" className="text-blue-400 hover:text-white">
-                                Home
-                            </Link>
-                        )}
-                    </li>
-                    <li>
-                        {isMainPage ? (
-                            <a href="#about" className="text-blue-400 hover:text-white">
-                                About
-                            </a>
-                        ) : (
-                            <Link to="/#about" className="text-blue-400 hover:text-white">
-                                About
-                            </Link>
-                        )}
-                    </li>
-                    <li>
-                        {isMainPage ? (
-                            <a href="#projects" className="text-blue-400 hover:text-white">
-                                Projects
-                            </a>
-                        ) : (
-                            <Link to="/#projects" className="text-blue-400 hover:text-white">
-                                Projects
-                            </Link>
-                        )}
-                    </li>
-                    <li>
-                        {isMainPage ? (
-                            <a href="#contact" className="text-blue-400 hover:text-white">
-                                Contact
-                            </a>
-                        ) : (
-                            <Link to="/#contact" className="text-blue-400 hover:text-white">
-                                Contact
-                            </Link>
-                        )}
-                    </li>
-                </ul>
-            </nav>
-
-            {/* Mobile Menu */}
-            <div
-                className={`absolute top-16 left-0 w-full bg-gray-950 shadow-md overflow-hidden transition-all duration-500 md:hidden ${isMenuOpen ? 'max-h-64 py-4' : 'max-h-0'
-                    }`}
-            >
-                <ul className="flex flex-col items-center space-y-4">
-                    <li>
-                        {isMainPage ? (
-                            <a
-                                href="#hero"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Home
-                            </a>
-                        ) : (
-                            <Link
-                                to="/"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Home
-                            </Link>
-                        )}
-                    </li>
-                    <li>
-                        {isMainPage ? (
-                            <a
-                                href="#about"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                About
-                            </a>
-                        ) : (
-                            <Link
-                                to="/#about"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                About
-                            </Link>
-                        )}
-                    </li>
-                    <li>
-                        {isMainPage ? (
-                            <a
-                                href="#projects"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Projects
-                            </a>
-                        ) : (
-                            <Link
-                                to="/#projects"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Projects
-                            </Link>
-                        )}
-                    </li>
-                    <li>
-                        {isMainPage ? (
-                            <a
-                                href="#contact"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Contact
-                            </a>
-                        ) : (
-                            <Link
-                                to="/#contact"
-                                className="text-blue-400 hover:text-white"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Contact
-                            </Link>
-                        )}
-                    </li>
-                </ul>
+                </AnimatePresence>
             </div>
-        </header>
+        </motion.header>
     );
 };
 

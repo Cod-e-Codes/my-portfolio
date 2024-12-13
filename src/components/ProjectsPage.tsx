@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+    Code,
+    Github,
+    ExternalLink,
+    Wrench,
+    CheckCircle,
+    Clock,
+    Star,
+} from 'lucide-react';
 
-// Define the project type
-type Project = {
+type ProjectStatus = 'Ongoing' | 'Completed' | 'Prototype' | 'Active';
+
+const projects: {
     title: string;
     description: string;
-    status: string;
+    status: ProjectStatus;
     github: string;
     demo?: string;
     technologies: string[];
-};
-
-// Define the structure of the projects object
-type Projects = {
-    [category: string]: Project[];
-};
-
-const projects: Projects = {
-    "Web Development": [
+}[] = [
         {
             title: 'Magi Ministries App',
             description: 'A Flutter web app for managing church activities with localization, API integration, PHP, and MySQL.',
@@ -70,8 +73,6 @@ const projects: Projects = {
             technologies: ['React', 'TypeScript', 'TailwindCSS'],
             demo: 'https://cod-e-codes.github.io/partydice-react/',
         },
-    ],
-    "Mobile Development": [
         {
             title: 'Rap Lyrics Game',
             description: 'A fun quiz game built with Flutter and a graffiti-style UI.',
@@ -136,8 +137,6 @@ const projects: Projects = {
             github: 'https://github.com/Cod-e-Codes/KitJinn',
             technologies: ['Flutter', 'Dart', 'Voice Recognition', 'Lottie Animations', 'Material 3'],
         },
-    ],
-    "Games and Experiments": [
         {
             title: 'Virtual Room Builder',
             description: 'A modular Python-based project for constructing and visualizing virtual rooms with customizable components like furniture and doors.',
@@ -187,8 +186,6 @@ const projects: Projects = {
             github: 'https://github.com/Cod-e-Codes/PartyDice',
             technologies: ['Flutter', 'Game Design', 'Animations'],
         },
-    ],
-    "Scripts and Tools": [
         {
             title: 'Birthday Bash Script',
             description: 'A personalized Bash script to celebrate a programmer\'s birthday with creative ASCII art, dynamic messages, and humorous programming references.',
@@ -196,188 +193,154 @@ const projects: Projects = {
             github: 'https://github.com/Cod-e-Codes/programmer-girlfriend',
             technologies: ['Bash', 'Shell Scripting', 'ASCII Art'],
         },
-    ],
+    ];
+
+const statusIcons: Record<ProjectStatus, React.FC> = {
+    Ongoing: Clock,
+    Completed: CheckCircle,
+    Prototype: Star,
+    Active: Code,
 };
 
-const getStatusClass = (status: string) => {
-    switch (status) {
-        case 'Active':
-            return 'bg-green-500 text-white';
-        case 'Ongoing':
-            return 'bg-yellow-500 text-white';
-        case 'Completed':
-            return 'bg-blue-500 text-white';
-        case 'Prototype':
-            return 'bg-purple-500 text-white';
-        default:
-            return 'bg-gray-500 text-white';
-    }
+const statusColors: Record<ProjectStatus, string> = {
+    Ongoing: 'yellow',
+    Completed: 'green',
+    Prototype: 'purple',
+    Active: 'blue',
 };
 
 const ProjectsPage: React.FC = () => {
-    const [showSnackbar, setShowSnackbar] = useState(false);
-    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-    const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, type: string) => {
-        e.preventDefault();
-        const message =
-            type === 'GitHub'
-                ? 'This repository is under construction. Check back later!'
-                : 'This demo is under construction. Check back later!';
-        setSnackbarMessage(message);
-        setShowSnackbar(true);
-        setTimeout(() => setShowSnackbar(false), 4000); // Hide snackbar after 4 seconds
-    };
-
-    const [searchTerm, setSearchTerm] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-    const [selectedTechnology, setSelectedTechnology] = useState<string | null>(null);
-
-    const allTechnologies = Array.from(
-        new Set(Object.values(projects).flatMap((categoryProjects) =>
-            categoryProjects.flatMap((project) => project.technologies)
-        ))
-    );
-
-    const filteredProjects = Object.entries(projects).reduce((acc, [category, projectList]) => {
-        if (selectedCategory && selectedCategory !== category) return acc;
-
-        const filteredList = projectList.filter(
-            (project) =>
-                (!searchTerm || project.title.toLowerCase().includes(searchTerm.toLowerCase())) &&
-                (!selectedTechnology || project.technologies.includes(selectedTechnology))
-        );
-
-        if (filteredList.length > 0) {
-            acc[category] = filteredList;
-        }
-
-        return acc;
-    }, {} as Projects);
+    const filteredProjects = activeFilter
+        ? projects.filter((project) => project.technologies.includes(activeFilter))
+        : projects;
 
     return (
-        <section id="all-projects" className="py-16 px-4 bg-gray-800 text-gray-300">
-            <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl font-bold text-center text-white mb-6">All Projects</h2>
+        <section id="projects-page" className="py-16 px-4 bg-gray-800 text-gray-300">
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-6xl mx-auto"
+            >
+                {/* Page Header */}
+                <motion.h2
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-4xl md:text-5xl font-extrabold text-center 
+                               bg-clip-text text-transparent 
+                               bg-gradient-to-r from-blue-400 to-purple-600 mb-6"
+                >
+                    All Projects
+                </motion.h2>
 
-                {/* Divider */}
-                <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-
-                <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-                    <div className="flex-1 min-w-[200px]">
-                        <input
-                            type="text"
-                            placeholder="Search projects..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full p-2 rounded bg-gray-700 border border-gray-500 text-white"
-                        />
-                    </div>
-                    <div className="flex-1 min-w-[200px]">
-                        <select
-                            value={selectedCategory || ''}
-                            onChange={(e) => setSelectedCategory(e.target.value || null)}
-                            className="w-full p-2 rounded bg-gray-700 border border-gray-500 text-white"
+                {/* Technology Filter */}
+                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                    {Array.from(new Set(projects.flatMap((p) => p.technologies))).map((tech) => (
+                        <motion.button
+                            key={tech}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setActiveFilter(activeFilter === tech ? null : tech)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all
+                                ${activeFilter === tech
+                                    ? 'bg-blue-600 text-white'
+                                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                }`}
                         >
-                            <option value="">All Categories</option>
-                            {Object.keys(projects).map((category) => (
-                                <option key={category} value={category}>
-                                    {category}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="flex-1 min-w-[200px]">
-                        <select
-                            value={selectedTechnology || ''}
-                            onChange={(e) => setSelectedTechnology(e.target.value || null)}
-                            className="w-full p-2 rounded bg-gray-700 border border-gray-500 text-white"
-                        >
-                            <option value="">All Technologies</option>
-                            {allTechnologies.map((tech) => (
-                                <option key={tech} value={tech}>
-                                    {tech}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                            {tech}
+                        </motion.button>
+                    ))}
                 </div>
 
-                {Object.entries(filteredProjects).map(([category, projectList]) => (
-                    <div key={category} className="mb-16">
-                        <h3 className="text-3xl font-semibold text-blue-400 mb-6">{category}</h3>
+                {/* Projects Grid */}
+                <motion.div
+                    layout
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                    <AnimatePresence>
+                        {filteredProjects.map((project) => {
+                            const StatusIcon = statusIcons[project.status];
+                            const statusColor = statusColors[project.status];
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {projectList.map((project, index) => (
-                                <div
-                                    key={index}
-                                    className="p-6 border border-gray-700 rounded-lg shadow-md bg-gray-900 flex flex-col justify-between"
+                            return (
+                                <motion.div
+                                    key={project.title}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="bg-gray-900 border border-gray-700 rounded-lg 
+                                               p-6 flex flex-col transform transition-all 
+                                               hover:shadow-2xl hover:scale-[1.02]"
                                 >
-                                    {project.status && (
-                                        <div className="mb-4">
-                                            <span
-                                                className={`inline-block px-3 py-1 text-sm font-semibold rounded ${getStatusClass(
-                                                    project.status
-                                                )}`}
-                                            >
-                                                {project.status}
-                                            </span>
+                                    <div className="flex justify-between items-center mb-4">
+                                        <div className={`p-2 rounded-full bg-${statusColor}-500/20`}>
+                                            <StatusIcon
+                                            />
                                         </div>
-                                    )}
-                                    <h3 className="text-xl font-semibold mb-4 text-white">{project.title}</h3>
-                                    <p className="text-gray-400 mb-4">{project.description}</p>
-                                    <div className="flex-grow"></div>
+                                        <span
+                                            className={`text-sm font-medium text-${statusColor}-400 
+                                                       bg-${statusColor}-500/10 px-3 py-1 rounded-full`}
+                                        >
+                                            {project.status}
+                                        </span>
+                                    </div>
+
+                                    <h3 className="text-xl font-bold text-white mb-3">
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-gray-400 mb-4 flex-grow">
+                                        {project.description}
+                                    </p>
+
                                     <div className="flex flex-wrap gap-2 mb-4">
-                                        {project.technologies.map((tech, i) => (
+                                        {project.technologies.map((tech) => (
                                             <span
-                                                key={i}
-                                                className="bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm"
+                                                key={tech}
+                                                className="bg-gray-700 text-gray-300 
+                                                           rounded-full px-3 py-1 text-xs"
                                             >
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
-                                    <div className="flex space-x-4">
-                                        <a
+
+                                    <div className="flex space-x-4 mt-auto">
+                                        <motion.a
                                             href={project.github}
-                                            target="_blank" // Opens link in a new tab
-                                            rel="noopener noreferrer" // Prevents security vulnerabilities
-                                            onClick={(e) => project.github === '#' && handleHashLinkClick(e, 'GitHub')}
-                                            className="flex items-center space-x-2 text-blue-400 hover:underline"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            className="text-blue-400 hover:text-blue-300 
+                                                       flex items-center space-x-2"
                                         >
-                                            <i className="fab fa-github"></i>
+                                            <Github size={20} />
                                             <span>GitHub</span>
-                                        </a>
+                                        </motion.a>
+
                                         {project.demo && (
-                                            <a
+                                            <motion.a
                                                 href={project.demo}
-                                                target="_blank" // Opens link in a new tab
-                                                rel="noopener noreferrer" // Prevents security vulnerabilities
-                                                onClick={(e) => project.demo === '#' && handleHashLinkClick(e, 'Demo')}
-                                                className="flex items-center space-x-2 text-blue-400 hover:underline"
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                className="text-green-400 hover:text-green-300 
+                                                           flex items-center space-x-2"
                                             >
-                                                <i className="fas fa-external-link-alt"></i>
-                                                <span>View Demo</span>
-                                            </a>
+                                                <ExternalLink size={20} />
+                                                <span>Demo</span>
+                                            </motion.a>
                                         )}
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Snackbar */}
-            <div
-                className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2 z-50 transition-all duration-500 ease-in-out ${showSnackbar
-                    ? 'animate-slide-in opacity-100'
-                    : 'opacity-0 pointer-events-none'
-                    }`}
-            >
-                <i className="fas fa-tools text-blue-400"></i>
-                <p>{snackbarMessage}</p>
-            </div>
+                                </motion.div>
+                            );
+                        })}
+                    </AnimatePresence>
+                </motion.div>
+            </motion.div>
         </section>
     );
 };

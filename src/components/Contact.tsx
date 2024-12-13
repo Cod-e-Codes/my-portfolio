@@ -117,10 +117,11 @@ const Contact: React.FC = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
                     >
-                        <div className="relative">
+                        <div className="relative translate-z-0">
                             <Mail
-                                className={`absolute left-4 top-1/2 -translate-y-1/2 
-                                    ${formFocus === 'email' ? 'text-blue-500' : 'text-gray-500'}`}
+                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 will-change-transform 
+                    ${formFocus === 'email' ? 'text-blue-500' : 'text-gray-500'} 
+                    transition-colors duration-300`}
                             />
                             <input
                                 type="email"
@@ -130,10 +131,10 @@ const Contact: React.FC = () => {
                                 onBlur={() => setFormFocus(null)}
                                 placeholder="Your Email"
                                 required
-                                className="w-full pl-12 pr-4 py-4 bg-gray-800/80 text-white rounded-xl 
-                                    border border-gray-700 focus:outline-none 
-                                    focus:ring-2 focus:ring-blue-500 
-                                    backdrop-blur-sm transition duration-300"
+                                className="w-full pl-12 pr-4 py-4 bg-gray-800 bg-opacity-80 text-white rounded-xl 
+                    border border-gray-700 focus:outline-none 
+                    focus:ring-2 focus:ring-blue-500 
+                    transition duration-300"
                             />
                         </div>
                     </motion.div>
@@ -144,10 +145,11 @@ const Contact: React.FC = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.6, duration: 0.6 }}
                     >
-                        <div className="relative">
+                        <div className="relative translate-z-0">
                             <MessageCircle
-                                className={`absolute left-4 top-1/2 -translate-y-1/2 
-                                    ${formFocus === 'subject' ? 'text-blue-500' : 'text-gray-500'}`}
+                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 will-change-transform 
+                    ${formFocus === 'subject' ? 'text-blue-500' : 'text-gray-500'} 
+                    transition-colors duration-300`}
                             />
                             <input
                                 type="text"
@@ -157,10 +159,10 @@ const Contact: React.FC = () => {
                                 onBlur={() => setFormFocus(null)}
                                 placeholder="Subject"
                                 required
-                                className="w-full pl-12 pr-4 py-4 bg-gray-800/80 text-white rounded-xl 
-                                    border border-gray-700 focus:outline-none 
-                                    focus:ring-2 focus:ring-blue-500 
-                                    backdrop-blur-sm transition duration-300"
+                                className="w-full pl-12 pr-4 py-4 bg-gray-800 bg-opacity-80 text-white rounded-xl 
+                    border border-gray-700 focus:outline-none 
+                    focus:ring-2 focus:ring-blue-500 
+                    transition duration-300"
                             />
                         </div>
                     </motion.div>
@@ -171,7 +173,7 @@ const Contact: React.FC = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.7, duration: 0.6 }}
                     >
-                        <div className="relative">
+                        <div className="relative translate-z-0">
                             <textarea
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
@@ -180,11 +182,10 @@ const Contact: React.FC = () => {
                                 placeholder="Your Message"
                                 required
                                 maxLength={1000}
-                                className="w-full p-4 bg-gray-800/80 text-white rounded-xl 
-                                    border border-gray-700 focus:outline-none 
-                                    focus:ring-2 focus:ring-blue-500 
-                                    backdrop-blur-sm transition duration-300 
-                                    resize-none min-h-[150px]"
+                                className="w-full p-4 bg-gray-800 bg-opacity-80 text-white rounded-xl 
+                    border border-gray-700 focus:outline-none 
+                    focus:ring-2 focus:ring-blue-500 
+                    transition duration-300 resize-none min-h-[150px]"
                             />
                             <div className="absolute bottom-2 right-4 text-gray-500 text-sm">
                                 {message.length} / 1000
@@ -202,8 +203,8 @@ const Contact: React.FC = () => {
                             type="submit"
                             disabled={isSubmitting}
                             className={`w-full flex items-center justify-center space-x-2 px-8 py-4 
-                                text-lg font-semibold rounded-xl transition duration-300 
-                                ${isSubmitting
+                text-lg font-semibold rounded-xl transition duration-300 
+                ${isSubmitting
                                     ? 'bg-gray-600 cursor-not-allowed'
                                     : 'bg-gradient-to-r from-blue-600 to-purple-700 text-white hover:from-blue-700 hover:to-purple-800'
                                 }`}
