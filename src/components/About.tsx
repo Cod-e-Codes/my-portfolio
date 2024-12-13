@@ -4,10 +4,6 @@ import {
     Code,
     Smartphone,
     Server,
-    Award,
-    Target,
-    Github,
-    Linkedin
 } from 'lucide-react';
 
 const About: React.FC = () => {

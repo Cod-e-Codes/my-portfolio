@@ -4,7 +4,6 @@ import {
     Code,
     Github,
     ExternalLink,
-    Wrench,
     CheckCircle,
     Clock,
     Star,

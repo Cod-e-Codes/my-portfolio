@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { Download, Send, Star } from 'lucide-react';
+import { Send, Star } from 'lucide-react';
 
 import heroImage from '../assets/hero-image.png';
 import technologyPattern from '../assets/technology-pattern.png';

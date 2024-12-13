@@ -5,7 +5,6 @@ import {
     Github,
     ExternalLink,
     ChevronRight,
-    Wrench,
     CheckCircle,
     Clock,
     Star,
@@ -82,20 +81,6 @@ const statusColors: Record<ProjectStatus, string> = {
 
 const Projects: React.FC = () => {
     const [activeFilter, setActiveFilter] = useState<string | null>(null);
-    const [showSnackbar, setShowSnackbar] = useState(false);
-    const [snackbarMessage, setSnackbarMessage] = useState('');
-
-    const handleHashLinkClick = (e: React.MouseEvent, type: string) => {
-        e.preventDefault();
-        const message =
-            type === 'GitHub'
-                ? 'This repository is under construction. Check back later!'
-                : 'This demo is under construction. Check back later!';
-
-        setSnackbarMessage(message);
-        setShowSnackbar(true);
-        setTimeout(() => setShowSnackbar(false), 4000);
-    };
 
     const filteredProjects = activeFilter
         ? projects.filter((project) => project.technologies.includes(activeFilter))
@@ -252,22 +237,6 @@ const Projects: React.FC = () => {
                 </motion.div>
             </motion.div>
 
-            {/* Snackbar */}
-            <AnimatePresence>
-                {showSnackbar && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 50 }}
-                        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 
-                                    bg-gray-800 text-white px-6 py-3 rounded-lg 
-                                    shadow-2xl flex items-center space-x-2 z-50"
-                    >
-                        <Wrench className="text-blue-400" />
-                        <p>{snackbarMessage}</p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </section>
     );
 };

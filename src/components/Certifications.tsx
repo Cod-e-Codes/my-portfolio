@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Award,
-    Maximize2,
     X,
-    ExternalLink
 } from 'lucide-react';
 
 import ibmMobileThumbnail from '../assets/ibm-ios-and-android-mobile-app-developer-thumbnail.jpeg';
