@@ -188,12 +188,7 @@ const Stats: React.FC = () => {
                         href="https://github.com/Cod-e-Codes"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-8 py-4 
-                                   bg-gradient-to-r from-gray-700 to-gray-900 
-                                   text-white rounded-xl 
-                                   hover:from-blue-600 hover:to-blue-800 
-                                   transition-all duration-300 
-                                   shadow-2xl hover:shadow-blue-500/50"
+                        className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-xl hover:from-blue-600 hover:to-blue-800 transition-all duration-300 shadow-2xl hover:shadow-blue-500/50"
                     >
                         <Github className="mr-3" size={24} />
                         Follow Me on GitHub

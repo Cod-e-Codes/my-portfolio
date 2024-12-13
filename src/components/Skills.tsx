@@ -16,16 +16,15 @@ const skillsByCategory = [
         skills: [
             'JavaScript', 'TypeScript', 'React', 'Three.js', 'TailwindCSS',
             'HTML5', 'CSS3', 'SCSS/SASS', 'LESS', 'jQuery', 'Bootstrap',
-            'Material-UI', 'Next.js', 'Vue.js', 'Redux', 'Webpack', 'Vite'
+            'Material-UI', 'Vue.js', 'Redux', 'Webpack', 'Vite', 'Chakra UI'
         ],
         icon: Code
     },
     {
         category: 'Back-End',
         skills: [
-            'Node.js', 'MySQL', 'RESTful APIs', 'PHP', 'C#', 'PostgreSQL',
-            'MongoDB', 'SQLite', 'Firebase', 'MariaDB', 'FastAPI',
-            'Flask', 'Django', 'GraphQL'
+            'MySQL', 'RESTful APIs', 'PHP', 'C#', 'PostgreSQL',
+            'MongoDB', 'SQLite', 'Firebase', 'MariaDB', 'FastAPI'
         ],
         icon: Database
     },
@@ -33,7 +32,7 @@ const skillsByCategory = [
         category: 'Design',
         skills: [
             'Adobe Photoshop', 'Adobe Illustrator', 'Adobe XD', 'Figma', 'Canva',
-            'Adobe Premiere Pro', 'Adobe After Effects', 'Adobe Animate', 'Adobe Audition'
+            'Blender'
         ],
         icon: Palette
     },
@@ -49,9 +48,8 @@ const skillsByCategory = [
     {
         category: 'Tools',
         skills: [
-            'Git', 'GitHub', 'GitLab', 'Bitbucket', 'Jenkins', 'Jira', 'Confluence',
-            'Trello', 'Slack', 'Jira', 'Visual Studio Code', 'IntelliJ IDEA', 'PyCharm',
-            'Android Studio', 'Xcode', 'Visual Studio', 'Eclipse', 'PyCharm', 'IntelliJ IDEA',
+            'Git', 'GitHub', 'GitLab', 'Android Studio', 'Xcode', 'Visual Studio',
+            'PyCharm', 'IntelliJ IDEA'
         ],
         icon: GitBranch
     },
@@ -67,9 +65,8 @@ const skillsByCategory = [
     {
         category: 'Frameworks',
         skills: [
-            'Angular', 'Ember.js', 'Backbone.js', 'Express.js', 'Laravel', 'Symfony',
-            'Flask', 'Django', 'Next.js', 'Vue.js', 'React', 'Next.js', 'React Native',
-            'Flutter', 'Electron', 'Nuxt.js', 'Nest.js'
+            'Angular', 'Backbone.js', 'Express.js', 'Flask', 'Django',
+            'Next.js', 'Vue.js', 'React', 'React Native', 'Flutter'
         ],
         icon: Wrench
     },
@@ -104,9 +101,7 @@ const Skills: React.FC = () => {
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-5xl font-extrabold text-center mb-8 
-                               bg-clip-text text-transparent 
-                               bg-gradient-to-r from-blue-400 to-purple-600"
+                    className="text-5xl font-extrabold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
                 >
                     Technical Skills
                 </motion.h2>

@@ -49,10 +49,7 @@ const Header: React.FC = () => {
                         <a
                             href={item.href}
                             className={`
-                                flex items-center gap-2 
-                                text-blue-400 hover:text-white 
-                                transition-all duration-300 
-                                ${isMobile ? 'py-2 px-4 w-full' : ''}
+                                flex items-center gap-2 text-blue-400 hover:text-white transition-all duration-300 ${isMobile ? 'py-2 px-4 w-full' : ''}
                             `}
                             {...(isMobile ? { onClick: () => setIsMenuOpen(false) } : {})}
                         >
@@ -63,10 +60,7 @@ const Header: React.FC = () => {
                         <Link
                             to={`/#${item.href.slice(1)}`}
                             className={`
-                                flex items-center gap-2 
-                                text-blue-400 hover:text-white 
-                                transition-all duration-300 
-                                ${isMobile ? 'py-2 px-4 w-full' : ''}
+                                flex items-center gap-2 text-blue-400 hover:text-white transition-all duration-300 ${isMobile ? 'py-2 px-4 w-full' : ''}
                             `}
                             {...(isMobile ? { onClick: () => setIsMenuOpen(false) } : {})}
                         >

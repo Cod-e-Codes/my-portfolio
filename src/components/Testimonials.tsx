@@ -77,7 +77,7 @@ const Testimonials: React.FC = () => {
                 {/* Navigation and Carousel Container */}
                 <div className="relative">
                     {/* Testimonial Navigation */}
-                    <div className="absolute -left-12 md:-left-16 top-1/2 transform -translate-y-1/2 z-20">
+                    <div className="absolute -left-2 md:-left-16 top-1/2 transform -translate-y-1/2 z-20">
                         <motion.button
                             onClick={prevTestimonial}
                             whileHover={{ scale: 1.1 }}
@@ -87,7 +87,7 @@ const Testimonials: React.FC = () => {
                             <ArrowLeft className="text-white" />
                         </motion.button>
                     </div>
-                    <div className="absolute -right-12 md:-right-16 top-1/2 transform -translate-y-1/2 z-20">
+                    <div className="absolute -right-2 md:-right-16 top-1/2 transform -translate-y-1/2 z-20">
                         <motion.button
                             onClick={nextTestimonial}
                             whileHover={{ scale: 1.1 }}

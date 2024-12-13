@@ -60,8 +60,7 @@ const Footer: React.FC = () => {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`p-3 rounded-full transition-all duration-300 
-                                       ${link.color} bg-opacity-10 hover:bg-opacity-20`}
+                            className={`p-3 rounded-full transition-all duration-300 ${link.color} bg-opacity-10 hover:bg-opacity-20`}
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
                             aria-label={link.label}

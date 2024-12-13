@@ -138,16 +138,14 @@ const Certifications: React.FC = () => {
                                 duration: 0.5,
                                 delay: index * 0.1
                             }}
-                            className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 
-                                       hover:bg-white/20 transition-all duration-300 group"
+                            className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 group"
                             onClick={() => setSelectedCert(cert)}
                         >
                             <div className="flex items-center mb-4">
                                 <img
                                     src={cert.thumbnail}
                                     alt={`${cert.title} thumbnail`}
-                                    className="w-16 h-16 mr-4 rounded-md object-cover 
-                                               shadow-lg group-hover:scale-110 transition-transform"
+                                    className="w-16 h-16 mr-4 rounded-md object-cover shadow-lg group-hover:scale-110 transition-transform"
                                 />
                                 <div>
                                     <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition">

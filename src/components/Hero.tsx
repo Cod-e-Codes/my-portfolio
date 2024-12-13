@@ -12,9 +12,7 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex flex-col items-center justify-center 
-                       bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 
-                       text-center px-4 py-16 overflow-hidden"
+            className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-center px-4 py-16 overflow-hidden"
         >
             {/* Animated Background Overlay */}
             <motion.div
@@ -72,25 +70,24 @@ const Hero: React.FC = () => {
                 </motion.div>
 
                 {/* Dynamic Title */}
-                <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 
-                               bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                     CodēCodes
                 </h1>
 
                 {/* Animated Typewriter */}
-                <div className="mb-8 px-4 py-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-                    <p className="text-xl md:text-2xl text-gray-200 font-medium flex items-center justify-center">
+                <div
+                    className="mb-8 px-4 py-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20"
+                    style={{ width: '330px' }} // Adjust based on the longest text
+                >
+                    <p
+                        className="text-xl md:text-2xl text-gray-200 font-medium flex items-center justify-center"
+                    >
                         <Typewriter
-                            words={[
-                                'Where Code Meets Creativity',
-                                'Crafting Digital Experiences',
-                                'Innovating Through Technology'
-                            ]}
-                            loop={true}
+                            words={['Where Code Meets Creativity']}
+                            loop={false} // Since there's only one phrase, no need to loop
                             cursor
                             cursorStyle="_"
                             typeSpeed={50}
-                            deleteSpeed={30}
                         />
                     </p>
                 </div>
@@ -99,12 +96,7 @@ const Hero: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                     <motion.a
                         href="#projects"
-                        className="flex items-center justify-center px-8 py-3 
-                                   bg-gradient-to-r from-green-500 to-green-600 
-                                   text-white text-lg rounded-lg 
-                                   hover:from-green-600 hover:to-green-700 
-                                   transition transform hover:scale-105 
-                                   shadow-lg hover:shadow-xl"
+                        className="flex items-center justify-center px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white text-lg rounded-lg hover:from-green-600 hover:to-green-700 transition transform hover:scale-105 shadow-lg hover:shadow-xl"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -116,12 +108,7 @@ const Hero: React.FC = () => {
                         href="https://www.linkedin.com/newsletters/code-chronicles-7269023711842783232"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center px-8 py-3 
-                                   bg-gradient-to-r from-blue-500 to-blue-600 
-                                   text-white text-lg rounded-lg 
-                                   hover:from-blue-600 hover:to-blue-700 
-                                   transition transform hover:scale-105 
-                                   shadow-lg hover:shadow-xl"
+                        className="flex items-center justify-center px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-lg rounded-lg hover:from-blue-600 hover:to-blue-700 transition transform hover:scale-105 shadow-lg hover:shadow-xl"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

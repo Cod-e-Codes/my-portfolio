@@ -119,8 +119,7 @@ const Contact: React.FC = () => {
                     >
                         <div className="relative translate-z-0">
                             <Mail
-                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 will-change-transform 
-                    ${formFocus === 'email' ? 'text-blue-500' : 'text-gray-500'} 
+                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 will-change-transform ${formFocus === 'email' ? 'text-blue-500' : 'text-gray-500'} 
                     transition-colors duration-300`}
                             />
                             <input
@@ -131,9 +130,7 @@ const Contact: React.FC = () => {
                                 onBlur={() => setFormFocus(null)}
                                 placeholder="Your Email"
                                 required
-                                className="w-full pl-12 pr-4 py-4 bg-gray-800 bg-opacity-80 text-white rounded-xl 
-                    border border-gray-700 focus:outline-none 
-                    focus:ring-2 focus:ring-blue-500 
+                                className="w-full pl-12 pr-4 py-4 bg-gray-800 bg-opacity-80 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 
                     transition duration-300"
                             />
                         </div>
@@ -147,8 +144,7 @@ const Contact: React.FC = () => {
                     >
                         <div className="relative translate-z-0">
                             <MessageCircle
-                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 will-change-transform 
-                    ${formFocus === 'subject' ? 'text-blue-500' : 'text-gray-500'} 
+                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 will-change-transform ${formFocus === 'subject' ? 'text-blue-500' : 'text-gray-500'} 
                     transition-colors duration-300`}
                             />
                             <input
@@ -159,9 +155,7 @@ const Contact: React.FC = () => {
                                 onBlur={() => setFormFocus(null)}
                                 placeholder="Subject"
                                 required
-                                className="w-full pl-12 pr-4 py-4 bg-gray-800 bg-opacity-80 text-white rounded-xl 
-                    border border-gray-700 focus:outline-none 
-                    focus:ring-2 focus:ring-blue-500 
+                                className="w-full pl-12 pr-4 py-4 bg-gray-800 bg-opacity-80 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 
                     transition duration-300"
                             />
                         </div>
@@ -182,9 +176,7 @@ const Contact: React.FC = () => {
                                 placeholder="Your Message"
                                 required
                                 maxLength={1000}
-                                className="w-full p-4 bg-gray-800 bg-opacity-80 text-white rounded-xl 
-                    border border-gray-700 focus:outline-none 
-                    focus:ring-2 focus:ring-blue-500 
+                                className="w-full p-4 bg-gray-800 bg-opacity-80 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 
                     transition duration-300 resize-none min-h-[150px]"
                             />
                             <div className="absolute bottom-2 right-4 text-gray-500 text-sm">
@@ -202,8 +194,7 @@ const Contact: React.FC = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className={`w-full flex items-center justify-center space-x-2 px-8 py-4 
-                text-lg font-semibold rounded-xl transition duration-300 
+                            className={`w-full flex items-center justify-center space-x-2 px-8 py-4 text-lg font-semibold rounded-xl transition duration-300 
                 ${isSubmitting
                                     ? 'bg-gray-600 cursor-not-allowed'
                                     : 'bg-gradient-to-r from-blue-600 to-purple-700 text-white hover:from-blue-700 hover:to-purple-800'
@@ -228,9 +219,7 @@ const Contact: React.FC = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 50 }}
-                    className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 
-                        px-6 py-4 rounded-xl shadow-2xl z-50 
-                        flex items-center space-x-3 
+                    className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center space-x-3 
                         ${snackbar.type === 'success'
                             ? 'bg-green-600/90 backdrop-blur-md'
                             : 'bg-red-600/90 backdrop-blur-md'

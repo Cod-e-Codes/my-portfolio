@@ -53,9 +53,7 @@ const About: React.FC = () => {
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-5xl font-extrabold text-center mb-8 
-                               bg-clip-text text-transparent 
-                               bg-gradient-to-r from-blue-400 to-purple-600"
+                    className="text-5xl font-extrabold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
                 >
                     About Me
                 </motion.h2>
@@ -89,9 +87,7 @@ const About: React.FC = () => {
                             onHoverStart={() => setActiveSkill(skill.title)}
                             onHoverEnd={() => setActiveSkill(null)}
                             className={`
-                                relative p-6 rounded-xl border-2 text-center 
-                                transition-all duration-300 
-                                ${activeSkill === skill.title
+                                relative p-6 rounded-xl border-2 text-center transition-all duration-300 ${activeSkill === skill.title
                                     ? 'bg-blue-900/50 border-blue-500 scale-105'
                                     : 'bg-white/10 border-white/20 hover:bg-white/20'}
                             `}
@@ -99,8 +95,7 @@ const About: React.FC = () => {
                             <div className="flex justify-center mb-4">
                                 <skill.icon
                                     className={`
-                                        w-16 h-16 
-                                        ${activeSkill === skill.title
+                                        w-16 h-16 ${activeSkill === skill.title
                                             ? 'text-blue-400'
                                             : 'text-gray-400'}
                                     `}

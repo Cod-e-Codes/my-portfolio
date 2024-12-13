@@ -102,9 +102,7 @@ const Projects: React.FC = () => {
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl md:text-5xl font-extrabold text-center 
-                               bg-clip-text text-transparent 
-                               bg-gradient-to-r from-blue-400 to-purple-600 mb-6"
+                    className="text-4xl md:text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-6"
                 >
                     Featured Projects
                 </motion.h2>
@@ -146,9 +144,7 @@ const Projects: React.FC = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.3 }}
-                                    className="bg-gray-800 border border-gray-700 rounded-2xl 
-                                               p-6 flex flex-col transform transition-all 
-                                               hover:shadow-2xl hover:scale-[1.02]"
+                                    className="bg-gray-800 border border-gray-700 rounded-2xl p-6 flex flex-col transform transition-all hover:shadow-2xl hover:scale-[1.02]"
                                 >
                                     <div className="flex justify-between items-center mb-4">
                                         <div className={`p-2 rounded-full bg-${statusColor}-500/20`}>
@@ -156,8 +152,7 @@ const Projects: React.FC = () => {
                                             />
                                         </div>
                                         <span
-                                            className={`text-sm font-medium text-${statusColor}-400 
-                   bg-${statusColor}-500/10 px-3 py-1 rounded-full`}
+                                            className={`text-sm font-medium text-${statusColor}-400 bg-${statusColor}-500/10 px-3 py-1 rounded-full`}
                                         >
                                             {project.status}
                                         </span>
@@ -175,8 +170,7 @@ const Projects: React.FC = () => {
                                         {project.technologies.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="bg-gray-700 text-gray-300 
-                                                           rounded-full px-3 py-1 text-xs"
+                                                className="bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-xs"
                                             >
                                                 {tech}
                                             </span>
@@ -188,8 +182,7 @@ const Projects: React.FC = () => {
                                             href={project.github}
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.9 }}
-                                            className="text-blue-400 hover:text-blue-300 
-                                                       flex items-center space-x-2"
+                                            className="text-blue-400 hover:text-blue-300 flex items-center space-x-2"
                                         >
                                             <Github size={20} />
                                             <span>GitHub</span>
@@ -200,8 +193,7 @@ const Projects: React.FC = () => {
                                                 href={project.demo}
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.9 }}
-                                                className="text-green-400 hover:text-green-300 
-                                                           flex items-center space-x-2"
+                                                className="text-green-400 hover:text-green-300 flex items-center space-x-2"
                                             >
                                                 <ExternalLink size={20} />
                                                 <span>Demo</span>
@@ -225,11 +217,7 @@ const Projects: React.FC = () => {
                         href="/all-projects"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center px-6 py-3 
-                                   bg-gradient-to-r from-blue-600 to-purple-600 
-                                   text-white rounded-lg 
-                                   hover:from-blue-700 hover:to-purple-700 
-                                   transition-all shadow-lg hover:shadow-xl"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
                     >
                         View All Projects
                         <ChevronRight className="ml-2" />
