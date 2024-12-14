@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink, scroller, animateScroll as scroll } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
 import { Home, User, Briefcase, Send, Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const location = useLocation();
+    const navigate = useNavigate();
 
     // Navigation Items with Icons
     const navItems = [
-        { name: 'Home', href: '#hero', icon: Home },
-        { name: 'About', href: '#about', icon: User },
-        { name: 'Projects', href: '#projects', icon: Briefcase },
-        { name: 'Contact', href: '#contact', icon: Send },
+        { name: 'Home', href: 'hero', icon: Home },
+        { name: 'About', href: 'about', icon: User },
+        { name: 'Projects', href: 'projects', icon: Briefcase },
+        { name: 'Contact', href: 'contact', icon: Send },
     ];
 
     // Scroll effect
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -38,39 +38,47 @@ const Header: React.FC = () => {
         },
     };
 
-    // Render navigation links
-    const renderNavLinks = (isMobile = false) =>
-        navItems.map((item) => {
-            const isMainPage = location.pathname === '/';
+    const handleNavigation = (href: string) => {
+        navigate('/');
+        setIsMenuOpen(false); // Close the mobile menu
+        setTimeout(() => {
+            scroller.scrollTo(href, {
+                smooth: true,
+                duration: 500,
+                offset: -70, // Adjust for header height
+            });
+        }, 100);
+    };
 
-            return (
-                <li key={item.name} className={isMobile ? 'w-full' : ''}>
-                    {isMainPage ? (
-                        <a
-                            href={item.href}
-                            className={`
-                                flex items-center gap-2 text-blue-400 hover:text-white transition-all duration-300 ${isMobile ? 'py-2 px-4 w-full' : ''}
-                            `}
-                            {...(isMobile ? { onClick: () => setIsMenuOpen(false) } : {})}
-                        >
-                            <item.icon size={20} />
-                            {item.name}
-                        </a>
-                    ) : (
-                        <Link
-                            to={`/#${item.href.slice(1)}`}
-                            className={`
-                                flex items-center gap-2 text-blue-400 hover:text-white transition-all duration-300 ${isMobile ? 'py-2 px-4 w-full' : ''}
-                            `}
-                            {...(isMobile ? { onClick: () => setIsMenuOpen(false) } : {})}
-                        >
-                            <item.icon size={20} />
-                            {item.name}
-                        </Link>
-                    )}
-                </li>
-            );
-        });
+    const renderNavLinks = (isMobile = false) =>
+        navItems.map((item) => (
+            <li key={item.name} className={isMobile ? 'w-full' : ''}>
+                {window.location.pathname === '/' ? (
+                    <ScrollLink
+                        to={item.href}
+                        smooth={true}
+                        duration={500}
+                        offset={-70}
+                        spy={true}
+                        className={`flex items-center gap-2 text-blue-400 hover:text-white transition-all duration-300 cursor-pointer ${isMobile ? 'py-2 px-4 w-full' : ''}`}
+                        onClick={() => {
+                            if (isMobile) setIsMenuOpen(false);
+                        }}
+                    >
+                        <item.icon size={20} />
+                        {item.name}
+                    </ScrollLink>
+                ) : (
+                    <button
+                        onClick={() => handleNavigation(item.href)}
+                        className={`flex items-center gap-2 text-blue-400 hover:text-white transition-all duration-300 cursor-pointer ${isMobile ? 'py-2 px-4 w-full' : ''}`}
+                    >
+                        <item.icon size={20} />
+                        {item.name}
+                    </button>
+                )}
+            </li>
+        ));
 
     return (
         <motion.header
@@ -82,12 +90,18 @@ const Header: React.FC = () => {
         >
             <div className="container mx-auto flex justify-between items-center p-4">
                 {/* Logo */}
-                <Link
-                    to="/"
+                <button
+                    onClick={() => {
+                        if (window.location.pathname === '/') {
+                            scroll.scrollTo(0); // Scroll to top
+                        } else {
+                            handleNavigation('hero'); // Navigate to home and scroll to top
+                        }
+                    }}
                     className="text-2xl font-bold text-white flex items-center gap-2"
                 >
                     CodēCodes
-                </Link>
+                </button>
 
                 {/* Mobile Menu Toggle */}
                 <button
