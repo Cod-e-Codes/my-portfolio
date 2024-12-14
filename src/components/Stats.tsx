@@ -28,7 +28,7 @@ const Stats: React.FC = () => {
                 const reposData = await reposResponse.json();
 
                 const stars = reposData.reduce((acc: number, repo: any) => acc + (repo.stargazers_count || 0), 0);
-                const contributions = 368;
+                const contributions = 383;
 
                 const profileResponse = await fetch('https://api.github.com/users/Cod-e-Codes');
                 const profileData = await profileResponse.json();
