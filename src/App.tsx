@@ -14,6 +14,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AnimatedSection from './components/AnimatedSection'; // Import the animation wrapper
 import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           />
           <Route path="/all-projects" element={<ProjectsPage />} />
           <Route path="/all-accomplishments" element={<AccomplishmentsPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
