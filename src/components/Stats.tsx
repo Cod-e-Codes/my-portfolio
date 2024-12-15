@@ -28,7 +28,7 @@ const Stats: React.FC = () => {
                 const reposData = await reposResponse.json();
 
                 const stars = reposData.reduce((acc: number, repo: any) => acc + (repo.stargazers_count || 0), 0);
-                const contributions = 383;
+                const contributions = 391;
 
                 const profileResponse = await fetch('https://api.github.com/users/Cod-e-Codes');
                 const profileData = await profileResponse.json();
@@ -57,7 +57,7 @@ const Stats: React.FC = () => {
         },
         {
             label: 'Certifications Earned',
-            value: 9,
+            value: 10,
             icon: <Award className="text-green-400" size={40} />,
             description: 'Continuing education & growth'
         },

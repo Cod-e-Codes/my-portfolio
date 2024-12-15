@@ -14,6 +14,7 @@ import ibmFrontEndThumbnail from '../assets/ibm-front-end-developer-thumbnail.jp
 import metaFrontEndThumbnail from '../assets/meta-front-end-developer-thumbnail.jpeg';
 import ibmFullStackThumbnail from '../assets/ibm-full-stack-software-developer-thumbnail.jpeg';
 import ibmBackEndThumbnail from '../assets/ibm-back-end-development-thumbnail.jpeg';
+import metaBackEndThumbnail from '../assets/meta-back-end-developer-thumbnail.jpeg';
 
 const certifications = [
     {
@@ -87,6 +88,14 @@ const certifications = [
         fullImage: ibmBackEndThumbnail,
         description: 'Advanced back-end development certification focusing on server-side technologies.',
         skills: ['Backend', 'Server-Side', 'Database']
+    },
+    {
+        title: 'Meta Back-End Developer',
+        issuer: 'Meta',
+        thumbnail: metaBackEndThumbnail,
+        fullImage: metaBackEndThumbnail,
+        description: 'Professional back-end development certification with focus on server-side technologies.',
+        skills: ['Python', 'Linux', 'Git', 'SQL', 'Cloud Hosting', 'APIs']
     }
 ];
 
