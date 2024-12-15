@@ -159,7 +159,7 @@ const Stats: React.FC = () => {
                             key={index}
                             className="bg-gray-800/60 backdrop-blur-md border border-gray-700 rounded-xl p-6 text-center group hover:scale-105 transition-transform duration-300 shadow-2xl"
                             variants={itemVariants}
-                            whileHover={{ scale: 1.05 }}
+                            style={{ minHeight: '250px' }} // Ensure consistent card height
                         >
                             <div className="flex justify-center mb-4">
                                 {stat.icon}
@@ -170,9 +170,19 @@ const Stats: React.FC = () => {
                                     : stat.value}
                             </span>
                             <span className="text-gray-400 block">{stat.label}</span>
-                            <span className="text-xs text-gray-500 mt-2 hidden group-hover:block">
-                                {stat.description}
-                            </span>
+                            <div
+                                className="mt-2"
+                                style={{ height: '20px' }} // Reserve space for description
+                            >
+                                <span
+                                    className={`text-xs text-gray-500 block transition-opacity duration-300 ${stat.description ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                >
+                                    <div className="group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                                        {stat.description}
+                                    </div>
+                                </span>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>

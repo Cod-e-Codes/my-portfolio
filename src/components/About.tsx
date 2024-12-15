@@ -87,32 +87,36 @@ const About: React.FC = () => {
                             onHoverStart={() => setActiveSkill(skill.title)}
                             onHoverEnd={() => setActiveSkill(null)}
                             className={`
-                                relative p-6 rounded-xl border-2 text-center transition-all duration-300 ${activeSkill === skill.title
+                relative p-6 rounded-xl border-2 text-center transition-all duration-300 ${activeSkill === skill.title
                                     ? 'bg-blue-900/50 border-blue-500 scale-105'
-                                    : 'bg-white/10 border-white/20 hover:bg-white/20'}
-                            `}
+                                    : 'bg-white/10 border-white/20 hover:bg-white/20'
+                                }
+            `}
+                            style={{ minHeight: '250px' }} // Ensures the cards have a consistent height
                         >
                             <div className="flex justify-center mb-4">
                                 <skill.icon
-                                    className={`
-                                        w-16 h-16 ${activeSkill === skill.title
-                                            ? 'text-blue-400'
-                                            : 'text-gray-400'}
-                                    `}
+                                    className={`w-16 h-16 ${activeSkill === skill.title
+                                        ? 'text-blue-400'
+                                        : 'text-gray-400'
+                                        }`}
                                 />
                             </div>
-                            <h3 className="text-xl font-bold mb-3 text-white">
-                                {skill.title}
-                            </h3>
-                            {activeSkill === skill.title && (
+                            <h3 className="text-xl font-bold mb-3 text-white">{skill.title}</h3>
+                            <div
+                                className="overflow-hidden transition-opacity duration-300"
+                                style={{ height: '60px' }} // Reserve space for the description
+                            >
                                 <motion.p
                                     initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
+                                    animate={{
+                                        opacity: activeSkill === skill.title ? 1 : 0
+                                    }}
                                     className="text-sm text-gray-300"
                                 >
                                     {skill.description}
                                 </motion.p>
-                            )}
+                            </div>
                         </motion.div>
                     ))}
                 </div>
