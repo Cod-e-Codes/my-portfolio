@@ -15,6 +15,7 @@ import metaFrontEndThumbnail from '../assets/meta-front-end-developer-thumbnail.
 import ibmFullStackThumbnail from '../assets/ibm-full-stack-software-developer-thumbnail.jpeg';
 import ibmBackEndThumbnail from '../assets/ibm-back-end-development-thumbnail.jpeg';
 import metaBackEndThumbnail from '../assets/meta-back-end-developer-thumbnail.jpeg';
+import ibmGenAIThumbnail from '../assets/ibm-generative-ai-engineering-thumbnail.jpeg'
 
 const certifications = [
     {
@@ -96,6 +97,14 @@ const certifications = [
         fullImage: metaBackEndThumbnail,
         description: 'Professional back-end development certification with focus on server-side technologies.',
         skills: ['Python', 'Linux', 'Git', 'SQL', 'Cloud Hosting', 'APIs']
+    },
+    {
+        title: 'IBM Generative AI Engineering',
+        issuer: 'IBM',
+        thumbnail: ibmGenAIThumbnail,
+        fullImage: ibmGenAIThumbnail,
+        description: 'Comprehensive generative AI engineering certification covering AI fundamentals and applications.',
+        skills: ['Generative AI', 'AI Engineering', 'Machine Learning']
     }
 ];
 
