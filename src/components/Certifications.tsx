@@ -18,6 +18,7 @@ import metaBackEndThumbnail from '../assets/meta-back-end-developer-thumbnail.jp
 import ibmGenAIThumbnail from '../assets/ibm-generative-ai-engineering-thumbnail.jpeg'
 import ibmAIEngineeringThumbnail from '../assets/ibm-ai-engineering-thumbnail.jpeg'
 import awsFundamentalsThumbnail from '../assets/aws-fundamentals-thumbnail.jpeg'
+import awsCloudSolutionsThumbnail from '../assets/aws-cloud-solutions-architect-thumbnail.jpeg'
 
 const certifications = [
     {
@@ -123,6 +124,14 @@ const certifications = [
         fullImage: awsFundamentalsThumbnail,
         description: 'Comprehensive AWS certification covering core AWS services, security concepts, and strategies for migrating workloads to AWS.',
         skills: ['AWS', 'Cloud Computing', 'Serverless Architecture', 'Security']
+    },
+    {
+        title: 'AWS Cloud Solutions Architect',
+        issuer: 'AWS',
+        thumbnail: awsCloudSolutionsThumbnail,
+        fullImage: awsCloudSolutionsThumbnail,
+        description: 'Comprehensive certification in cloud architecture with hands-on experience in designing secure, scalable AWS solutions.',
+        skills: ['AWS', 'Cloud Architecture', 'Serverless', 'Data Lakes', 'Networking']
     }
 ];
 

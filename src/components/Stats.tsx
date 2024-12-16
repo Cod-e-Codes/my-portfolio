@@ -110,7 +110,7 @@ const Stats: React.FC = () => {
         },
         {
             label: 'Certifications Earned',
-            value: 13,
+            value: 14,
             icon: <Award className="text-green-400" size={40} />,
         },
         {
