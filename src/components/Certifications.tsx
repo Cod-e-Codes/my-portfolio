@@ -16,6 +16,7 @@ import ibmFullStackThumbnail from '../assets/ibm-full-stack-software-developer-t
 import ibmBackEndThumbnail from '../assets/ibm-back-end-development-thumbnail.jpeg';
 import metaBackEndThumbnail from '../assets/meta-back-end-developer-thumbnail.jpeg';
 import ibmGenAIThumbnail from '../assets/ibm-generative-ai-engineering-thumbnail.jpeg'
+import ibmAIEngineeringThumbnail from '../assets/ibm-ai-engineering-thumbnail.jpeg'
 
 const certifications = [
     {
@@ -105,6 +106,14 @@ const certifications = [
         fullImage: ibmGenAIThumbnail,
         description: 'Comprehensive generative AI engineering certification covering AI fundamentals and applications.',
         skills: ['Generative AI', 'AI Engineering', 'Machine Learning']
+    },
+    {
+        title: 'IBM AI Engineering',
+        issuer: 'IBM',
+        thumbnail: ibmAIEngineeringThumbnail,
+        fullImage: ibmAIEngineeringThumbnail,
+        description: 'Advanced AI engineering certification focusing on AI development and deployment.',
+        skills: ['AI Engineering', 'Machine Learning', 'Deep Learning']
     }
 ];
 
