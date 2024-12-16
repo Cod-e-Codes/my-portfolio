@@ -17,6 +17,7 @@ import ibmBackEndThumbnail from '../assets/ibm-back-end-development-thumbnail.jp
 import metaBackEndThumbnail from '../assets/meta-back-end-developer-thumbnail.jpeg';
 import ibmGenAIThumbnail from '../assets/ibm-generative-ai-engineering-thumbnail.jpeg'
 import ibmAIEngineeringThumbnail from '../assets/ibm-ai-engineering-thumbnail.jpeg'
+import awsFundamentalsThumbnail from '../assets/aws-fundamentals-thumbnail.jpeg'
 
 const certifications = [
     {
@@ -114,6 +115,14 @@ const certifications = [
         fullImage: ibmAIEngineeringThumbnail,
         description: 'Advanced AI engineering certification focusing on AI development and deployment.',
         skills: ['AI Engineering', 'Machine Learning', 'Deep Learning']
+    },
+    {
+        title: 'AWS Fundamentals',
+        issuer: 'AWS',
+        thumbnail: awsFundamentalsThumbnail,
+        fullImage: awsFundamentalsThumbnail,
+        description: 'Comprehensive AWS certification covering core AWS services, security concepts, and strategies for migrating workloads to AWS.',
+        skills: ['AWS', 'Cloud Computing', 'Serverless Architecture', 'Security']
     }
 ];
 
